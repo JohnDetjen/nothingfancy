@@ -7,13 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430569F721B9C38D0079AD38 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569F621B9C38C0079AD38 /* InviteViewController.swift */; };
+		430569F921B9D3190079AD38 /* MerchantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569F821B9D3190079AD38 /* MerchantsViewController.swift */; };
+		430569FD21BAED0B0079AD38 /* MerchantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569FC21BAED0A0079AD38 /* MerchantTableViewCell.swift */; };
+		430569FF21BAF80B0079AD38 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569FE21BAF80B0079AD38 /* AssetsViewController.swift */; };
+		43056A0121BAF91C0079AD38 /* AssetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */; };
 		432DD88021AC589E0012F09B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432DD87F21AC589E0012F09B /* AppDelegate.swift */; };
-		432DD88221AC589E0012F09B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432DD88121AC589E0012F09B /* ViewController.swift */; };
 		432DD88521AC589E0012F09B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432DD88321AC589E0012F09B /* Main.storyboard */; };
 		432DD88721AC58A00012F09B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432DD88621AC58A00012F09B /* Assets.xcassets */; };
 		432DD88A21AC58A00012F09B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432DD88821AC58A00012F09B /* LaunchScreen.storyboard */; };
 		432DD89521AC58A10012F09B /* TopcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432DD89421AC58A10012F09B /* TopcoinTests.swift */; };
 		432DD8A021AC58A10012F09B /* TopcoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432DD89F21AC58A10012F09B /* TopcoinUITests.swift */; };
+		4337CC9E21CC312B00C508D3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337CC9D21CC312B00C508D3 /* WelcomeViewController.swift */; };
+		436F5C1121DC246E00CD89A5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F5C1021DC246E00CD89A5 /* LogInViewController.swift */; };
+		4374FF6921D463F700497EA7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374FF6821D463F700497EA7 /* SignUpViewController.swift */; };
+		4374FF6B21D465B600497EA7 /* ReusableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374FF6A21D465B600497EA7 /* ReusableViewController.swift */; };
+		437DCAE821C17E4A00183139 /* ApplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DCAE721C17E4900183139 /* ApplyViewController.swift */; };
+		437DCAEE21C1B56200183139 /* ManageWalletTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DCAED21C1B56200183139 /* ManageWalletTableViewController.swift */; };
+		437DCAF021C1C31D00183139 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */; };
+		4388D41C21CAC9B5002C2550 /* EcosystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */; };
+		43B1590221E54D3100EE3959 /* Invite2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B1590121E54D3000EE3959 /* Invite2ViewController.swift */; };
+		43F44AF221BECC7500A96054 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F44AF121BECC7500A96054 /* MeViewController.swift */; };
+		43F44AF421BECC9F00A96054 /* MeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F44AF321BECC9F00A96054 /* MeTableViewCell.swift */; };
+		6E9306EDDBE57714320E3001 /* Pods_TopcoinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AA1B6C939004A5D5E9728E /* Pods_TopcoinUITests.framework */; };
+		787D54E43ECAA4827BDFB004 /* Pods_Topcoin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F57154CC5C95E2261A87D66 /* Pods_Topcoin.framework */; };
+		7C8E43844FC34A6A96D33928 /* Pods_TopcoinTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04ACC47E55601F299029BB53 /* Pods_TopcoinTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +52,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04ACC47E55601F299029BB53 /* Pods_TopcoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TopcoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F57154CC5C95E2261A87D66 /* Pods_Topcoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Topcoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		430569F621B9C38C0079AD38 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
+		430569F821B9D3190079AD38 /* MerchantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantsViewController.swift; sourceTree = "<group>"; };
+		430569FC21BAED0A0079AD38 /* MerchantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantTableViewCell.swift; sourceTree = "<group>"; };
+		430569FE21BAF80B0079AD38 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
+		43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewCell.swift; sourceTree = "<group>"; };
 		432DD87C21AC589E0012F09B /* Topcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Topcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432DD87F21AC589E0012F09B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		432DD88121AC589E0012F09B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		432DD88421AC589E0012F09B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		432DD88621AC58A00012F09B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		432DD88921AC58A00012F09B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +71,24 @@
 		432DD89B21AC58A10012F09B /* TopcoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TopcoinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		432DD89F21AC58A10012F09B /* TopcoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopcoinUITests.swift; sourceTree = "<group>"; };
 		432DD8A121AC58A10012F09B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4337CC9D21CC312B00C508D3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		436F5C1021DC246E00CD89A5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		4374FF6821D463F700497EA7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4374FF6A21D465B600497EA7 /* ReusableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewController.swift; sourceTree = "<group>"; };
+		437DCAE721C17E4900183139 /* ApplyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyViewController.swift; sourceTree = "<group>"; };
+		437DCAED21C1B56200183139 /* ManageWalletTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWalletTableViewController.swift; sourceTree = "<group>"; };
+		437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
+		4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcosystemViewController.swift; sourceTree = "<group>"; };
+		43B1590121E54D3000EE3959 /* Invite2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invite2ViewController.swift; sourceTree = "<group>"; };
+		43F44AF121BECC7500A96054 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		43F44AF321BECC9F00A96054 /* MeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeTableViewCell.swift; sourceTree = "<group>"; };
+		61294A214F880F351CD9D3FD /* Pods-TopcoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopcoinTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TopcoinTests/Pods-TopcoinTests.release.xcconfig"; sourceTree = "<group>"; };
+		69BEB5D14B8D9542AECD8AD9 /* Pods-Topcoin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Topcoin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Topcoin/Pods-Topcoin.debug.xcconfig"; sourceTree = "<group>"; };
+		69F36156FC6270F1D0480D92 /* Pods-Topcoin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Topcoin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Topcoin/Pods-Topcoin.release.xcconfig"; sourceTree = "<group>"; };
+		81F2A8F3956A7B8784AE72C2 /* Pods-TopcoinUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopcoinUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TopcoinUITests/Pods-TopcoinUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8C0015F7A18EA62FB86F1F06 /* Pods-TopcoinUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopcoinUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TopcoinUITests/Pods-TopcoinUITests.release.xcconfig"; sourceTree = "<group>"; };
+		90AA1B6C939004A5D5E9728E /* Pods_TopcoinUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TopcoinUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A65925366A5210E824D79E58 /* Pods-TopcoinTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopcoinTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TopcoinTests/Pods-TopcoinTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				787D54E43ECAA4827BDFB004 /* Pods_Topcoin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C8E43844FC34A6A96D33928 /* Pods_TopcoinTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +112,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E9306EDDBE57714320E3001 /* Pods_TopcoinUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B58846F6B05B639E687BC16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69BEB5D14B8D9542AECD8AD9 /* Pods-Topcoin.debug.xcconfig */,
+				69F36156FC6270F1D0480D92 /* Pods-Topcoin.release.xcconfig */,
+				A65925366A5210E824D79E58 /* Pods-TopcoinTests.debug.xcconfig */,
+				61294A214F880F351CD9D3FD /* Pods-TopcoinTests.release.xcconfig */,
+				81F2A8F3956A7B8784AE72C2 /* Pods-TopcoinUITests.debug.xcconfig */,
+				8C0015F7A18EA62FB86F1F06 /* Pods-TopcoinUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		230BDE0D31B3ED6351FBE667 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3F57154CC5C95E2261A87D66 /* Pods_Topcoin.framework */,
+				04ACC47E55601F299029BB53 /* Pods_TopcoinTests.framework */,
+				90AA1B6C939004A5D5E9728E /* Pods_TopcoinUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		432DD87321AC589E0012F09B = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +149,8 @@
 				432DD89321AC58A10012F09B /* TopcoinTests */,
 				432DD89E21AC58A10012F09B /* TopcoinUITests */,
 				432DD87D21AC589E0012F09B /* Products */,
+				1B58846F6B05B639E687BC16 /* Pods */,
+				230BDE0D31B3ED6351FBE667 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -98,10 +168,25 @@
 			isa = PBXGroup;
 			children = (
 				432DD87F21AC589E0012F09B /* AppDelegate.swift */,
-				432DD88121AC589E0012F09B /* ViewController.swift */,
 				432DD88321AC589E0012F09B /* Main.storyboard */,
-				432DD88621AC58A00012F09B /* Assets.xcassets */,
+				43B1590121E54D3000EE3959 /* Invite2ViewController.swift */,
 				432DD88821AC58A00012F09B /* LaunchScreen.storyboard */,
+				432DD88621AC58A00012F09B /* Assets.xcassets */,
+				4374FF6A21D465B600497EA7 /* ReusableViewController.swift */,
+				4337CC9D21CC312B00C508D3 /* WelcomeViewController.swift */,
+				4374FF6821D463F700497EA7 /* SignUpViewController.swift */,
+				436F5C1021DC246E00CD89A5 /* LogInViewController.swift */,
+				430569FE21BAF80B0079AD38 /* AssetsViewController.swift */,
+				43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */,
+				4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */,
+				437DCAE721C17E4900183139 /* ApplyViewController.swift */,
+				430569F821B9D3190079AD38 /* MerchantsViewController.swift */,
+				430569FC21BAED0A0079AD38 /* MerchantTableViewCell.swift */,
+				430569F621B9C38C0079AD38 /* InviteViewController.swift */,
+				43F44AF121BECC7500A96054 /* MeViewController.swift */,
+				43F44AF321BECC9F00A96054 /* MeTableViewCell.swift */,
+				437DCAED21C1B56200183139 /* ManageWalletTableViewController.swift */,
+				437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */,
 				432DD88B21AC58A00012F09B /* Info.plist */,
 			);
 			path = Topcoin;
@@ -132,9 +217,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 432DD8A421AC58A10012F09B /* Build configuration list for PBXNativeTarget "Topcoin" */;
 			buildPhases = (
+				907E6B059809E5599AE9CCA6 /* [CP] Check Pods Manifest.lock */,
 				432DD87821AC589E0012F09B /* Sources */,
 				432DD87921AC589E0012F09B /* Frameworks */,
 				432DD87A21AC589E0012F09B /* Resources */,
+				536A5825BB29ABA02AB98B7B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +236,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 432DD8A721AC58A10012F09B /* Build configuration list for PBXNativeTarget "TopcoinTests" */;
 			buildPhases = (
+				76329C88831046770A1AA7BA /* [CP] Check Pods Manifest.lock */,
 				432DD88C21AC58A10012F09B /* Sources */,
 				432DD88D21AC58A10012F09B /* Frameworks */,
 				432DD88E21AC58A10012F09B /* Resources */,
@@ -167,6 +255,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 432DD8AA21AC58A10012F09B /* Build configuration list for PBXNativeTarget "TopcoinUITests" */;
 			buildPhases = (
+				6F557BF3E4306A8504B48232 /* [CP] Check Pods Manifest.lock */,
 				432DD89721AC58A10012F09B /* Sources */,
 				432DD89821AC58A10012F09B /* Frameworks */,
 				432DD89921AC58A10012F09B /* Resources */,
@@ -251,13 +340,113 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		536A5825BB29ABA02AB98B7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Topcoin/Pods-Topcoin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BlockiesSwift/BlockiesSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
+				"${BUILT_PRODUCTS_DIR}/Sparrow/Sparrow.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BlockiesSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sparrow.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Topcoin/Pods-Topcoin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6F557BF3E4306A8504B48232 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TopcoinUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76329C88831046770A1AA7BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TopcoinTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		907E6B059809E5599AE9CCA6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Topcoin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		432DD87821AC589E0012F09B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				432DD88221AC589E0012F09B /* ViewController.swift in Sources */,
+				437DCAE821C17E4A00183139 /* ApplyViewController.swift in Sources */,
+				437DCAEE21C1B56200183139 /* ManageWalletTableViewController.swift in Sources */,
+				430569F921B9D3190079AD38 /* MerchantsViewController.swift in Sources */,
+				4388D41C21CAC9B5002C2550 /* EcosystemViewController.swift in Sources */,
+				43B1590221E54D3100EE3959 /* Invite2ViewController.swift in Sources */,
+				437DCAF021C1C31D00183139 /* AboutTableViewController.swift in Sources */,
+				43F44AF221BECC7500A96054 /* MeViewController.swift in Sources */,
+				4337CC9E21CC312B00C508D3 /* WelcomeViewController.swift in Sources */,
+				430569F721B9C38D0079AD38 /* InviteViewController.swift in Sources */,
+				430569FD21BAED0B0079AD38 /* MerchantTableViewCell.swift in Sources */,
+				4374FF6921D463F700497EA7 /* SignUpViewController.swift in Sources */,
+				43056A0121BAF91C0079AD38 /* AssetsTableViewCell.swift in Sources */,
+				43F44AF421BECC9F00A96054 /* MeTableViewCell.swift in Sources */,
+				436F5C1121DC246E00CD89A5 /* LogInViewController.swift in Sources */,
 				432DD88021AC589E0012F09B /* AppDelegate.swift in Sources */,
+				4374FF6B21D465B600497EA7 /* ReusableViewController.swift in Sources */,
+				430569FF21BAF80B0079AD38 /* AssetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,11 +619,13 @@
 		};
 		432DD8A521AC58A10012F09B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69BEB5D14B8D9542AECD8AD9 /* Pods-Topcoin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4ADXY8287M;
+				DEVELOPMENT_TEAM = 24E54K9DKU;
 				INFOPLIST_FILE = Topcoin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -448,11 +639,13 @@
 		};
 		432DD8A621AC58A10012F09B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69F36156FC6270F1D0480D92 /* Pods-Topcoin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4ADXY8287M;
+				DEVELOPMENT_TEAM = 24E54K9DKU;
 				INFOPLIST_FILE = Topcoin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -466,6 +659,7 @@
 		};
 		432DD8A821AC58A10012F09B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A65925366A5210E824D79E58 /* Pods-TopcoinTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +681,7 @@
 		};
 		432DD8A921AC58A10012F09B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61294A214F880F351CD9D3FD /* Pods-TopcoinTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +703,7 @@
 		};
 		432DD8AB21AC58A10012F09B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81F2A8F3956A7B8784AE72C2 /* Pods-TopcoinUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +724,7 @@
 		};
 		432DD8AC21AC58A10012F09B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C0015F7A18EA62FB86F1F06 /* Pods-TopcoinUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
