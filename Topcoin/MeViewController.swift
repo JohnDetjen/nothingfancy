@@ -124,6 +124,7 @@ class MeViewController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     @IBAction func logOutbuttonPressed(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "email")
+        UserDefaults.standard.removeObject(forKey: "balance")
         self.loadLoginScreen()
         
     }
