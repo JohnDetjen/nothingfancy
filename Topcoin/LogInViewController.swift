@@ -11,8 +11,12 @@ import Parse
 import MBProgressHUD
 
 class LogInViewController: UIViewController {
+
     @IBOutlet weak var textEmail: UITextField!
+    @IBOutlet weak var textName: UITextField!
     @IBOutlet weak var textPassword: UITextField!
+    @IBOutlet weak var textPhoneNumber: UITextField!
+    @IBOutlet weak var textCountry: UITextField!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var doneButton: UIButton!
     
@@ -25,6 +29,10 @@ class LogInViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        addReusableViewController()
     }
     
     @objc func hideKeyboard() {
@@ -67,23 +75,10 @@ class LogInViewController: UIViewController {
     
 
     @IBAction func doneButtonPressed(_ sender: Any) {
-        // Retrieving the info from the text fields
-        if let username = textEmail.text,
-            let password = textPassword.text {
-            
-            // Defining the user object
-            MBProgressHUD.showAdded(to: view, animated: true)
-            PFUser.logInWithUsername(inBackground: username, password: password, block: {(user, error) -> Void in
-                if let errorString = (error as NSError?)?.userInfo["error"] as? NSString {
-                    self.alert(message: errorString, title: "Error")
-                }
-                else {
-                    self.loadHomeScreen()
-                    
-                }
-                MBProgressHUD.hide(for: self.view, animated: true)
-            })
-        }
+        UserDefaults.standard.set(textEmail.text, forKey: "email")
+        
+        //
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     func loadHomeScreen() {

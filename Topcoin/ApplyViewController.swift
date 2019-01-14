@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ApplyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ApplyViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var yourNameTextField: UITextField!
     @IBOutlet weak var emailAddressTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-    @IBOutlet weak var businessTypeTextField: UITextField!
     @IBOutlet weak var yourMessageTextField: UITextField!
     @IBOutlet weak var submitMessage: UIButton!
     
@@ -24,9 +23,10 @@ class ApplyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         super.viewDidLoad()
         addReusableViewController()
         
-        let thePicker = UIPickerView()
-        businessTypeTextField.inputView = thePicker
-        thePicker.delegate = self
+//        let thePicker = UIPickerView()
+//        businessTypeTextField.inputView = thePicker
+//        thePicker.delegate = self
+        
         submitMessage.layer.cornerRadius = 25.0
         submitMessage.clipsToBounds = true
         
@@ -47,22 +47,22 @@ class ApplyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
 
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView( _ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return myPickerData.count
-    }
-    
-    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return myPickerData[row]
-    }
-    
-    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        businessTypeTextField.text = myPickerData[row]
-        self.view.endEditing(true)
-    }
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//
+//    func pickerView( _ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return myPickerData.count
+//    }
+//
+//    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        return myPickerData[row]
+//    }
+//
+//    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+//        businessTypeTextField.text = myPickerData[row]
+//        self.view.endEditing(true)
+//    }
     
     func addReusableViewController() {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: String(describing: ReusableViewController.self)) as? ReusableViewController else { return }

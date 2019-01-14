@@ -13,12 +13,18 @@ import SafariServices
 class ManageWalletTableViewController: UITableViewController {
 
     @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var userLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         logOutButton.layer.cornerRadius = 25.0
         logOutButton.clipsToBounds = true
+        
+        let username = UserDefaults.standard.string(forKey: "email")
+        if(username != nil) {
+            self.userLabel.text = username
+        }
 
     }
 
@@ -32,23 +38,14 @@ class ManageWalletTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 3
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch (indexPath.section, indexPath.row) {
-            //        case (0,0):
-            //
-            //            // Safe Push VC
-            //            if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "manageWalletVC") as? ManageWalletTableViewController {
-            //                if let navigator = navigationController {
-            //                    navigator.pushViewController(viewController, animated: true)
-            //                }
-            //                tableView.deselectRow(at: indexPath, animated: true)
-            //            }
             
-        case (0,0):
+        case (0,1):
             
             if let url = URL(string: "http://topcoin.com") {
                 let svc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
@@ -58,7 +55,7 @@ class ManageWalletTableViewController: UITableViewController {
             
             
             
-        case (0,1):
+        case (0,2):
             
             // Safe Push VC
             if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "aboutTableViewController") as? AboutTableViewController {

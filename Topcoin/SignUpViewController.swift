@@ -16,6 +16,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textEmail: UITextField!
+    @IBOutlet weak var textPassword: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
@@ -37,6 +38,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
     
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        addReusableViewController()
     }
     
     @objc func hideKeyboard() {

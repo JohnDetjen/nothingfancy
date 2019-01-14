@@ -38,8 +38,10 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         addReusableViewController()
-        
+
         self.tableView.rowHeight = 90.0
+        
+    
         
 //        tableView.layer.cornerRadius = 5
 //        if #available(iOS 11.0, *) {
@@ -162,11 +164,6 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let balance = UserDefaults.standard.double(forKey: "balance")
             cell.balanceLabel.text = "\(balance)"
             cell.sendImage.image = UIImage(named: "downArrow")
-            
-        case (0,1):
-            let balance = UserDefaults.standard.double(forKey: "balance")
-            cell.balanceLabel.text = "\(balance)"
-            cell.sendImage.image = UIImage(named: "downArrow")
 
         default : break
         }
@@ -181,9 +178,8 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let hasBalanace = UserDefaults.standard.object(forKey: "balance") != nil
-        return hasBalanace ? 4 : 0
+        return hasBalanace ? 1 : 0
     }
-    
 
 }
 
