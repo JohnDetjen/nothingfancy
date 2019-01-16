@@ -1,44 +1,26 @@
 //
-//  SignUpViewController.swift
+//  ForgotPasswordViewController.swift
 //  Topcoin
 //
-//  Created by John Detjen on 12/26/18.
-//  Copyright © 2018 Topcoin. All rights reserved.
+//  Created by John Detjen on 1/16/19.
+//  Copyright © 2019 Topcoin. All rights reserved.
 //
 
 import UIKit
-import Parse
-import SCLAlertView
-import MBProgressHUD
 
-struct ApiLoginDTO : Codable {
-    let access_token : String?
-    
-    enum CodingKeys: String, CodingKey {
-        case access_token = "access_token"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        access_token = try values.decodeIfPresent(String.self, forKey: .access_token)
-    }
-}
+class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var textEmail: UITextField!
-    @IBOutlet weak var textPassword: UITextField!
-    @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var textEmail: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.tintColor = UIColor.black
         
         textEmail.delegate = self
-        textPassword.delegate = self
         
         addReusableViewController()
         
@@ -50,9 +32,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
-        
-        swipeToPop()
-    
+
+        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,26 +62,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         var userInfo = notification.userInfo!
         var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-
+        
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = keyboardFrame.size.height
         scrollView.contentInset = contentInset
     }
-
+    
     @objc func keyboardWillHide(notification:NSNotification){
-
+        
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
-    }
-    
-    func swipeToPop() {
-        
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
-    }
-    
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
     }
     
     func addReusableViewController() {
@@ -122,60 +93,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         view1.addConstraints([constraint1, constraint2, constraint3, constraint4])
     }
 
-    @IBAction func backButtonPressed(_ sender: Any) {
-        performSegueToReturnBack()
-    }
-    
-    
     @IBAction func doneButtonPressed(_ sender: Any) {
-        apiLogin(email: textEmail.text ?? "", password: textPassword.text ?? "", callback: { token in
-            UserDefaults.standard.set(self.textEmail.text, forKey: "email")
-            UserDefaults.standard.set(token, forKey: "token")
-            self.navigationController?.dismiss(animated: true, completion: nil)
-            
+        apiForgotPassword(email: textEmail.text ?? "", callback: {
+            print("SUCCESS")
+            // TODO: Go to the "check your email for a password reset page" link
         }, error: { message in
-            let alert = UIAlertController(title: "Log In Failed", message: message, preferredStyle: .alert)
+            let alert = UIAlertController(title: "Password Reset Failed", message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         })
     }
     
-    
-    func apiLogin(email: String, password: String, callback: @escaping (String) -> Void, error errorCallback: @escaping (String) -> Void) {
-        let escapedEmail = email.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let body = "grant_type=password&username=\(escapedEmail)&password=\(escapedPassword)"
-        
-        var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/auth/token/")!)
-        request.httpMethod = "POST"
-        request.httpBody = body.data(using: .utf8)
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        
-        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            do {
-                let jsonDecoder = JSONDecoder()
-                let loginModel = try jsonDecoder.decode(ApiLoginDTO.self, from: data!)
-                if let accessToken = loginModel.access_token {
-                    DispatchQueue.main.async {
-                        callback(accessToken)
-                    }
-                    return
-                }
-            } catch { }
-            do {
-                let jsonDecoder = JSONDecoder()
-                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
-                if let message = errorModel.message {
-                    DispatchQueue.main.async {
-                        errorCallback(message)
-                    }
-                    return
-                }
-            } catch { }
-            DispatchQueue.main.async {
-                errorCallback("An unknown error occurred.")
-            }
-        }).resume()
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     func apiForgotPassword(email: String, callback: @escaping () -> Void, error errorCallback: @escaping (String) -> Void) {
@@ -205,25 +135,5 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 callback()
             }
         }).resume()
-    }
-    
-    
-    
-    func loadHomeScreen() {
-        if let AssetsViewController = storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as? AssetsViewController {
-            let homeNavigation = UINavigationController(rootViewController: AssetsViewController)
-            self.present(homeNavigation, animated: true, completion: nil)
-        }
-    }
-}
-
-
-extension UIViewController {
-    func performSegueToReturnBack()  {
-        if let nav = self.navigationController {
-            nav.popViewController(animated: false)
-        } else {
-            self.dismiss(animated: false, completion: nil)
-        }
     }
 }

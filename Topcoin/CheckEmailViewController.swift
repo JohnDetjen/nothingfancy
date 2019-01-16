@@ -1,37 +1,33 @@
 //
-//  WelcomeViewController.swift
+//  CheckEmailViewController.swift
 //  Topcoin
 //
-//  Created by John Detjen on 12/20/18.
-//  Copyright © 2018 Topcoin. All rights reserved.
+//  Created by John Detjen on 1/16/19.
+//  Copyright © 2019 Topcoin. All rights reserved.
 //
 
 import UIKit
-import SafariServices
 
-class WelcomeViewController: UIViewController {
+class CheckEmailViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var logIn: UIButton!
-
-    
-    
+    @IBOutlet weak var signInButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         addReusableViewController()
-        
-        logIn.layer.cornerRadius = 25.0
-        logIn.clipsToBounds = true
-        
 
+        signInButton.layer.cornerRadius = 25.0
+        signInButton.clipsToBounds = true
+        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        addReusableViewController()
     }
-    
+
     func addReusableViewController() {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: String(describing: ReusableViewController.self)) as? ReusableViewController else { return }
+        guard let vc = ReusableViewController.getInstance(storyboard: storyboard) else { return }
+        //        guard let vc = storyboard?.instantiateViewController(withIdentifier: String(describing: ReusableViewController.self)) as? ReusableViewController else { return }
         vc.willMove(toParent: self)
         addChild(vc)
         containerView.addSubview(vc.view)
@@ -48,17 +44,10 @@ class WelcomeViewController: UIViewController {
         let constraint4 = NSLayoutConstraint(item: view1, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view2, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1.0, constant: 0.0)
         view1.addConstraints([constraint1, constraint2, constraint3, constraint4])
     }
-
     
-    @IBAction func privacyButtonPressed(_ sender: Any) {
-        
-        if let url = URL(string: "https://topcoin.network/privacy") {
-            let svc = SFSafariViewController(url: url, entersReaderIfAvailable: true)
-            self.present(svc, animated: true, completion: nil)
-        }
-        
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
     }
     
-  
 
 }

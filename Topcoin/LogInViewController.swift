@@ -10,7 +10,36 @@ import UIKit
 import Parse
 import MBProgressHUD
 
-class LogInViewController: UIViewController {
+struct ApiSuccessDTO : Codable {
+    let status : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        status = try values.decodeIfPresent(String.self, forKey: .status)
+    }
+}
+
+struct ApiErrorDTO : Codable {
+    let error : Int?
+    let message : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case error = "error"
+        case message = "message"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        error = try values.decodeIfPresent(Int.self, forKey: .error)
+        message = try values.decodeIfPresent(String.self, forKey: .message)
+    }
+}
+
+class LogInViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textEmail: UITextField!
     @IBOutlet weak var textName: UITextField!
@@ -19,16 +48,27 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var textCountry: UITextField!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addReusableViewController()
+        
+        textEmail.delegate = self
+        textName.delegate = self
+        textPassword.delegate = self
+        textPhoneNumber.delegate = self
+        textCountry.delegate = self
 
         doneButton.layer.cornerRadius = 25.0
         doneButton.clipsToBounds = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,11 +79,26 @@ class LogInViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        for textField in self.view.subviews where textField is UITextField {
-            textField.resignFirstResponder()
-        }
+    func textFieldShouldReturn(_ textEmail: UITextField) -> Bool {
+        self.view.endEditing(true)
         return true
+    }
+    
+
+    @objc func keyboardWillShow(notification:NSNotification){
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification){
+        
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
     
     func addReusableViewController() {
@@ -73,12 +128,58 @@ class LogInViewController: UIViewController {
         
     }
     
-
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        UserDefaults.standard.set(textEmail.text, forKey: "email")
+    func apiSignup(email: String, password: String, name: String, callback: @escaping () -> Void, error errorCallback: @escaping (String) -> Void) {
+        let escapedEmail = email.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let escapedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let body = "grant_type=password&email=\(escapedEmail)&username=\(escapedEmail)&password=\(escapedPassword)&firstName=\(escapedName)&lastName=User"
         
-        //
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/v1/users")!)
+        request.httpMethod = "POST"
+        request.httpBody = body.data(using: .utf8)
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        
+        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
+            do {
+                let jsonDecoder = JSONDecoder()
+                let successModel = try jsonDecoder.decode(ApiSuccessDTO.self, from: data!)
+                if successModel.status == "success" {
+                    DispatchQueue.main.async {
+                        callback()
+                    }
+                    return
+                }
+            } catch { }
+            do {
+                let jsonDecoder = JSONDecoder()
+                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
+                if let message = errorModel.message {
+                    DispatchQueue.main.async {
+                        errorCallback(message)
+                    }
+                    return
+                }
+            } catch { }
+            DispatchQueue.main.async {
+                errorCallback("An unknown error occurred.")
+            }
+        }).resume()
+    }
+
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        apiSignup(email: textEmail.text ?? "", password: textPassword.text ?? "", name: textName.text ?? "", callback: {
+//            UserDefaults.standard.set(self.textEmail.text, forKey: "email")
+//            self.navigationController?.dismiss(animated: true, completion: nil)
+            self.loadCheckEmailScreen()
+        }, error: { message in
+            let alert = UIAlertController(title: "Sign Up Failed", message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        })
     }
     
     func loadHomeScreen() {
@@ -87,5 +188,11 @@ class LogInViewController: UIViewController {
             self.present(homeNavigation, animated: true, completion: nil)
             self.navigationController?.dismiss(animated: true, completion: nil)
         }
+    }
+    
+    func loadCheckEmailScreen() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "CheckEmailViewController") as! CheckEmailViewController
+        self.present(newViewController, animated: true, completion: nil)
     }
 }

@@ -22,7 +22,6 @@ struct BalanceDTO : Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         old_balance = try Double(values.decodeIfPresent(String.self, forKey: .old_balance) ?? "")
     }
-    
 }
 
 class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {

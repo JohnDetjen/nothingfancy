@@ -20,12 +20,14 @@ class ManageWalletTableViewController: UITableViewController {
         
         logOutButton.layer.cornerRadius = 25.0
         logOutButton.clipsToBounds = true
-        
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
         let username = UserDefaults.standard.string(forKey: "email")
         if(username != nil) {
             self.userLabel.text = username
         }
-
     }
 
     @objc func tapButton(){

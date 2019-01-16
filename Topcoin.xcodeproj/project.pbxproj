@@ -12,6 +12,9 @@
 		430569FD21BAED0B0079AD38 /* MerchantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569FC21BAED0A0079AD38 /* MerchantTableViewCell.swift */; };
 		430569FF21BAF80B0079AD38 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569FE21BAF80B0079AD38 /* AssetsViewController.swift */; };
 		43056A0121BAF91C0079AD38 /* AssetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */; };
+		43292B9821EF8D7200A3C92F /* CheckEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43292B9721EF8D7200A3C92F /* CheckEmailViewController.swift */; };
+		43292B9A21EFA47400A3C92F /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43292B9921EFA47400A3C92F /* ForgotPasswordViewController.swift */; };
+		43292B9C21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43292B9B21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift */; };
 		432DD88021AC589E0012F09B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432DD87F21AC589E0012F09B /* AppDelegate.swift */; };
 		432DD88521AC589E0012F09B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 432DD88321AC589E0012F09B /* Main.storyboard */; };
 		432DD88721AC58A00012F09B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 432DD88621AC58A00012F09B /* Assets.xcassets */; };
@@ -59,6 +62,9 @@
 		430569FC21BAED0A0079AD38 /* MerchantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantTableViewCell.swift; sourceTree = "<group>"; };
 		430569FE21BAF80B0079AD38 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
 		43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewCell.swift; sourceTree = "<group>"; };
+		43292B9721EF8D7200A3C92F /* CheckEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailViewController.swift; sourceTree = "<group>"; };
+		43292B9921EFA47400A3C92F /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		43292B9B21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailResetPasswordViewController.swift; sourceTree = "<group>"; };
 		432DD87C21AC589E0012F09B /* Topcoin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Topcoin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		432DD87F21AC589E0012F09B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		432DD88421AC589E0012F09B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +182,9 @@
 				4337CC9D21CC312B00C508D3 /* WelcomeViewController.swift */,
 				4374FF6821D463F700497EA7 /* SignUpViewController.swift */,
 				436F5C1021DC246E00CD89A5 /* LogInViewController.swift */,
+				43292B9921EFA47400A3C92F /* ForgotPasswordViewController.swift */,
+				43292B9721EF8D7200A3C92F /* CheckEmailViewController.swift */,
+				43292B9B21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift */,
 				430569FE21BAF80B0079AD38 /* AssetsViewController.swift */,
 				43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */,
 				4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */,
@@ -436,6 +445,8 @@
 				4388D41C21CAC9B5002C2550 /* EcosystemViewController.swift in Sources */,
 				43B1590221E54D3100EE3959 /* Invite2ViewController.swift in Sources */,
 				437DCAF021C1C31D00183139 /* AboutTableViewController.swift in Sources */,
+				43292B9821EF8D7200A3C92F /* CheckEmailViewController.swift in Sources */,
+				43292B9A21EFA47400A3C92F /* ForgotPasswordViewController.swift in Sources */,
 				43F44AF221BECC7500A96054 /* MeViewController.swift in Sources */,
 				4337CC9E21CC312B00C508D3 /* WelcomeViewController.swift in Sources */,
 				430569F721B9C38D0079AD38 /* InviteViewController.swift in Sources */,
@@ -445,6 +456,7 @@
 				43F44AF421BECC9F00A96054 /* MeTableViewCell.swift in Sources */,
 				436F5C1121DC246E00CD89A5 /* LogInViewController.swift in Sources */,
 				432DD88021AC589E0012F09B /* AppDelegate.swift in Sources */,
+				43292B9C21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift in Sources */,
 				4374FF6B21D465B600497EA7 /* ReusableViewController.swift in Sources */,
 				430569FF21BAF80B0079AD38 /* AssetsViewController.swift in Sources */,
 			);
