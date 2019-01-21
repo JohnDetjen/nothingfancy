@@ -42,10 +42,6 @@ struct ApiErrorDTO : Codable {
 class LogInViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var textEmail: UITextField!
-    @IBOutlet weak var textName: UITextField!
-    @IBOutlet weak var textPassword: UITextField!
-    @IBOutlet weak var textPhoneNumber: UITextField!
-    @IBOutlet weak var textCountry: UITextField!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -56,10 +52,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         addReusableViewController()
         
         textEmail.delegate = self
-        textName.delegate = self
-        textPassword.delegate = self
-        textPhoneNumber.delegate = self
-        textCountry.delegate = self
 
         doneButton.layer.cornerRadius = 25.0
         doneButton.clipsToBounds = true
@@ -128,11 +120,50 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func apiSignup(email: String, password: String, name: String, callback: @escaping () -> Void, error errorCallback: @escaping (String) -> Void) {
+//    func apiSignup(email: String, password: String, name: String, callback: @escaping () -> Void, error errorCallback: @escaping (String) -> Void) {
+//        let escapedEmail = email.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+//        let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+//        let escapedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+//        let body = "grant_type=password&email=\(escapedEmail)&username=\(escapedEmail)&password=\(escapedPassword)&firstName=\(escapedName)&lastName=User"
+//
+//        var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/v1/users")!)
+//        request.httpMethod = "POST"
+//        request.httpBody = body.data(using: .utf8)
+//        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//
+//        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
+//            do {
+//                let jsonDecoder = JSONDecoder()
+//                let successModel = try jsonDecoder.decode(ApiSuccessDTO.self, from: data!)
+//                if successModel.status == "success" {
+//                    DispatchQueue.main.async {
+//                        callback()
+//                    }
+//                    return
+//                }
+//            } catch { }
+//            do {
+//                let jsonDecoder = JSONDecoder()
+//                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
+//                if let message = errorModel.message {
+//                    DispatchQueue.main.async {
+//                        errorCallback(message)
+//                    }
+//                    return
+//                }
+//            } catch { }
+//            DispatchQueue.main.async {
+//                errorCallback("An unknown error occurred.")
+//            }
+//        }).resume()
+//    }
+    
+    func apiSignup(email: String, callback: @escaping () -> Void, error errorCallback: @escaping (String) -> Void) {
         let escapedEmail = email.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let escapedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+//        let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+//        let escapedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         let body = "grant_type=password&email=\(escapedEmail)&username=\(escapedEmail)&password=\(escapedPassword)&firstName=\(escapedName)&lastName=User"
+//        let body = "grant_type=password&email=\(escapedEmail)&username=\(escapedEmail)&password=\(escapedPassword)&firstName=\(escapedName)&lastName=User"
         
         var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/v1/users")!)
         request.httpMethod = "POST"
@@ -171,7 +202,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
-        apiSignup(email: textEmail.text ?? "", password: textPassword.text ?? "", name: textName.text ?? "", callback: {
+        apiSignup(email: textEmail.text ?? "", callback: {
+//             apiSignup(email: textEmail.text ?? "", password: textPassword.text ?? "", name: textName.text ?? "", callback: {
 //            UserDefaults.standard.set(self.textEmail.text, forKey: "email")
 //            self.navigationController?.dismiss(animated: true, completion: nil)
             self.loadCheckEmailScreen()
@@ -193,6 +225,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     func loadCheckEmailScreen() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let newViewController = storyBoard.instantiateViewController(withIdentifier: "CheckEmailViewController") as! CheckEmailViewController
-        self.present(newViewController, animated: true, completion: nil)
+        self.present(newViewController, animated: false, completion: nil)
     }
 }

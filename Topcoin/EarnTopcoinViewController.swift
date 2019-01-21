@@ -1,28 +1,36 @@
 //
-//  ForgotPasswordViewController.swift
+//  EarnTopcoinViewController.swift
 //  Topcoin
 //
-//  Created by John Detjen on 1/16/19.
+//  Created by John Detjen on 1/21/19.
 //  Copyright © 2019 Topcoin. All rights reserved.
 //
 
 import UIKit
 
-class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
+class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var textEmail: UITextField!
-    @IBOutlet weak var doneButton: UIButton!
+    @IBOutlet weak var textName: UITextField!
+    @IBOutlet weak var textPassword: UITextField!
+    @IBOutlet weak var textPhoneNumber: UITextField!
+    @IBOutlet weak var textCountry: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomScrollViewConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var doneButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addReusableViewController()
         
         textEmail.delegate = self
-        
-        addReusableViewController()
+        textName.delegate = self
+        textPassword.delegate = self
+        textPhoneNumber.delegate = self
+        textCountry.delegate = self
         
         doneButton.layer.cornerRadius = 25.0
         doneButton.clipsToBounds = true
@@ -33,7 +41,6 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,14 +54,6 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textEmail: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
-    }
-    
-    
-    func alert(message: NSString, title: NSString) {
-        let alert = UIAlertController(title: title as String, message: message as String, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-        
     }
     
     
@@ -76,6 +75,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
     
     func addReusableViewController() {
         guard let vc = ReusableViewController.getInstance(storyboard: storyboard) else { return }
+        //        guard let vc = storyboard?.instantiateViewController(withIdentifier: String(describing: ReusableViewController.self)) as? ReusableViewController else { return }
         vc.willMove(toParent: self)
         addChild(vc)
         containerView.addSubview(vc.view)
@@ -92,56 +92,22 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         let constraint4 = NSLayoutConstraint(item: view1, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view2, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1.0, constant: 0.0)
         view1.addConstraints([constraint1, constraint2, constraint3, constraint4])
     }
+    
+    func alert(message: NSString, title: NSString) {
+        let alert = UIAlertController(title: title as String, message: message as String, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        apiForgotPassword(email: textEmail.text ?? "", callback: {
-            print("SUCCESS")
-            self.loadCheckEmailScreen()
-            // TODO: Go to the "check your email for a password reset page" link
-        }, error: { message in
-            let alert = UIAlertController(title: "Password Reset Failed", message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        })
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
     }
-    
-    func loadCheckEmailScreen() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewController = storyBoard.instantiateViewController(withIdentifier: "CheckEmailResetPasswordViewController") as! CheckEmailResetPasswordViewController
-        self.present(newViewController, animated: false, completion: nil)
-    }
-    
-    @IBAction func backButtonPressed(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
-    }
-    
-    func apiForgotPassword(email: String, callback: @escaping () -> Void, error errorCallback: @escaping (String) -> Void) {
-        let escapedEmail = email.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let body = "grant_type=password&email=\(escapedEmail)"
-        
-        var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/auth/forgotPassword/")!)
-        request.httpMethod = "POST"
-        request.httpBody = body.data(using: .utf8)
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        
-        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            print(String(data: data!, encoding: .utf8))
-            do {
-                let jsonDecoder = JSONDecoder()
-                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
-                if errorModel.error != nil {
-                    if let message = errorModel.message {
-                        DispatchQueue.main.async {
-                            errorCallback(message)
-                        }
-                        return
-                    }
-                }
-            } catch { }
-            DispatchQueue.main.async {
-                callback()
-            }
-        }).resume()
-    }
-    
+    */
+
 }

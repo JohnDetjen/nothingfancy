@@ -131,7 +131,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         apiLogin(email: textEmail.text ?? "", password: textPassword.text ?? "", callback: { token in
             UserDefaults.standard.set(self.textEmail.text, forKey: "email")
             UserDefaults.standard.set(token, forKey: "token")
-            self.navigationController?.dismiss(animated: true, completion: nil)
+//
+            self.loadHomeScreen()
             
         }, error: { message in
             let alert = UIAlertController(title: "Log In Failed", message: message, preferredStyle: .alert)
@@ -208,13 +209,23 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    
     func loadHomeScreen() {
-        if let AssetsViewController = storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as? AssetsViewController {
-            let homeNavigation = UINavigationController(rootViewController: AssetsViewController)
-            self.present(homeNavigation, animated: true, completion: nil)
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as! UITabBarController
+        self.present(vc, animated: true, completion: nil)
+//        if let AssetsViewController = storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as? AssetsViewController {
+//            let homeNavigation = UINavigationController(rootViewController: AssetsViewController)
+////            self.present(homeNavigation, animated: false, completion: nil)
+//            self.navigationController?.dismiss(animated: true, completion: nil)
         }
-    }
+//    }
+    
+//    func loadHomeScreen() {
+//        if let AssetsViewController = storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as? AssetsViewController {
+//            let homeNavigation = UINavigationController(rootViewController: AssetsViewController)
+//            self.present(homeNavigation, animated: true, completion: nil)
+//        }
+//    }
 }
 
 

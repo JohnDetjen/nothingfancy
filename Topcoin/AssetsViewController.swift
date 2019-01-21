@@ -61,7 +61,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         userImage.layer.masksToBounds = false
         userImage.layer.borderColor = UIColor.white.cgColor
         userImage.layer.cornerRadius = 5
-//        userImage.layer.cornerRadius = userImage.frame.height/2
+//        userImage?.layer.cornerRadius = userImage.frame.height/2
         userImage.clipsToBounds = true
     }
     

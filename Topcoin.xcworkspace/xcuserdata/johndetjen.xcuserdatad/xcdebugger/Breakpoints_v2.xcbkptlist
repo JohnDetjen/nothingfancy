@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Topcoin/SignUpViewController.swift"
-            timestampString = "569364898.768786"
+            timestampString = "569447873.1527179"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "apiLogin(email:password:callback:error:)"
             landmarkType = "7">
          </BreakpointContent>

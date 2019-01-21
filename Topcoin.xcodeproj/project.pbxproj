@@ -30,6 +30,7 @@
 		437DCAF021C1C31D00183139 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */; };
 		4388D41C21CAC9B5002C2550 /* EcosystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */; };
 		43B1590221E54D3100EE3959 /* Invite2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B1590121E54D3000EE3959 /* Invite2ViewController.swift */; };
+		43B5C49D21F64D2E00517841 /* EarnTopcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B5C49C21F64D2E00517841 /* EarnTopcoinViewController.swift */; };
 		43F44AF221BECC7500A96054 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F44AF121BECC7500A96054 /* MeViewController.swift */; };
 		43F44AF421BECC9F00A96054 /* MeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F44AF321BECC9F00A96054 /* MeTableViewCell.swift */; };
 		6E9306EDDBE57714320E3001 /* Pods_TopcoinUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90AA1B6C939004A5D5E9728E /* Pods_TopcoinUITests.framework */; };
@@ -86,6 +87,7 @@
 		437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcosystemViewController.swift; sourceTree = "<group>"; };
 		43B1590121E54D3000EE3959 /* Invite2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invite2ViewController.swift; sourceTree = "<group>"; };
+		43B5C49C21F64D2E00517841 /* EarnTopcoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnTopcoinViewController.swift; sourceTree = "<group>"; };
 		43F44AF121BECC7500A96054 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		43F44AF321BECC9F00A96054 /* MeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeTableViewCell.swift; sourceTree = "<group>"; };
 		61294A214F880F351CD9D3FD /* Pods-TopcoinTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TopcoinTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TopcoinTests/Pods-TopcoinTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				43292B9B21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift */,
 				430569FE21BAF80B0079AD38 /* AssetsViewController.swift */,
 				43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */,
+				43B5C49C21F64D2E00517841 /* EarnTopcoinViewController.swift */,
 				4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */,
 				437DCAE721C17E4900183139 /* ApplyViewController.swift */,
 				430569F821B9D3190079AD38 /* MerchantsViewController.swift */,
@@ -443,6 +446,7 @@
 				437DCAEE21C1B56200183139 /* ManageWalletTableViewController.swift in Sources */,
 				430569F921B9D3190079AD38 /* MerchantsViewController.swift in Sources */,
 				4388D41C21CAC9B5002C2550 /* EcosystemViewController.swift in Sources */,
+				43B5C49D21F64D2E00517841 /* EarnTopcoinViewController.swift in Sources */,
 				43B1590221E54D3100EE3959 /* Invite2ViewController.swift in Sources */,
 				437DCAF021C1C31D00183139 /* AboutTableViewController.swift in Sources */,
 				43292B9821EF8D7200A3C92F /* CheckEmailViewController.swift in Sources */,
@@ -635,14 +639,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 24E54K9DKU;
+				DEVELOPMENT_TEAM = 5YS3755677;
 				INFOPLIST_FILE = Topcoin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JohnDetjen.Topcoin;
+				PRODUCT_BUNDLE_IDENTIFIER = network.topcoin.topcoin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -655,14 +659,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 24E54K9DKU;
+				DEVELOPMENT_TEAM = 5YS3755677;
 				INFOPLIST_FILE = Topcoin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JohnDetjen.Topcoin;
+				PRODUCT_BUNDLE_IDENTIFIER = network.topcoin.topcoin;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
