@@ -151,6 +151,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         request.httpMethod = "POST"
         request.httpBody = body.data(using: .utf8)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("ios-app-v1", forHTTPHeaderField: "App-Agent")
         
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
             do {
@@ -187,6 +188,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         request.httpMethod = "POST"
         request.httpBody = body.data(using: .utf8)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("ios-app-v1", forHTTPHeaderField: "App-Agent")
         
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
             print(String(data: data!, encoding: .utf8))

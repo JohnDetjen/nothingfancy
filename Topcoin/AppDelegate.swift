@@ -41,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         request.httpMethod = "GET"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        request.setValue("ios-app-v1", forHTTPHeaderField: "App-Agent")
         
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
             do {
