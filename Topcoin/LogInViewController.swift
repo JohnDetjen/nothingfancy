@@ -162,7 +162,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let escapedEmail = email.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 //        let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 //        let escapedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let body = "grant_type=password&email=\(escapedEmail)&username=\(escapedEmail)&password=\(escapedPassword)&firstName=\(escapedName)&lastName=User"
+        let body = "grant_type=password&email=\(escapedEmail)&username="
+//        \(escapedEmail)&password=\(escapedPassword)&firstName=\(escapedName)&lastName=User"
 //        let body = "grant_type=password&email=\(escapedEmail)&username=\(escapedEmail)&password=\(escapedPassword)&firstName=\(escapedName)&lastName=User"
         
         var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/v1/users")!)

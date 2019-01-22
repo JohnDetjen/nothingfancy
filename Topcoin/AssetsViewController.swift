@@ -31,6 +31,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var balanceShown: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var earnTopcoinButton: UIButton!
     
     var loaded: Bool = false
     
@@ -39,6 +40,8 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         addReusableViewController()
 
         self.tableView.rowHeight = 90.0
+        earnTopcoinButton.layer.cornerRadius = 25.0
+        earnTopcoinButton.clipsToBounds = true
         
     
         
@@ -79,7 +82,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let balance = UserDefaults.standard.double(forKey: "balance")
             self.balanceShown.text = "\(balance)"
         } else {
-            self.balanceShown.text = "--.--"
+            self.balanceShown.text = "00.00"
         }
         reloadBalance()
     }
@@ -88,13 +91,12 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        if UserDefaults.standard.string(forKey: "email") == nil {
-            if let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeVC") as? WelcomeViewController {
-                let loginNavigation = UINavigationController(rootViewController: welcomeVC)
-                self.present(loginNavigation, animated: true, completion: nil)
-//                self.navigationController?.present(welcomeVC, animated: true)
-            }
-        }
+//        if UserDefaults.standard.string(forKey: "email") == nil {
+////            if let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeVC") as? WelcomeViewController {
+////                let loginNavigation = UINavigationController(rootViewController: welcomeVC)
+////                self.present(loginNavigation, animated: true, completion: nil)
+//            }
+//        }
     }
     
     func getBalance(callback: @escaping (Double) -> Void) {

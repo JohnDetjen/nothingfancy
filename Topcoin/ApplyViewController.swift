@@ -82,5 +82,10 @@ class ApplyViewController: UIViewController {
         let constraint4 = NSLayoutConstraint(item: view1, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view2, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1.0, constant: 0.0)
         view1.addConstraints([constraint1, constraint2, constraint3, constraint4])
     }
+    
+    @IBAction func backButtonPressed(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
+    
 
 }
