@@ -52,7 +52,7 @@
 			<string>network.topcoin.topcoin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>Topcoin</string>
+				<string>topcoin</string>
 			</array>
 		</dict>
 	</array>

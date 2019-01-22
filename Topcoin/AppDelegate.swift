@@ -36,15 +36,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func apiVerify(id: String, token: String, callback: @escaping () -> Void, error errorCallback: @escaping (String) -> Void) {
+        var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/v1/users/\(id)")!)
+        request.httpMethod = "GET"
+        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
+            do {
+                let jsonDecoder = JSONDecoder()
+                let successModel = try jsonDecoder.decode(ApiSuccessDTO.self, from: data!)
+                if successModel.status == "success" {
+                    DispatchQueue.main.async {
+                        callback()
+                    }
+                    return
+                }
+            } catch { }
+            do {
+                let jsonDecoder = JSONDecoder()
+                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
+                if let message = errorModel.message {
+                    DispatchQueue.main.async {
+                        errorCallback(message)
+                    }
+                    return
+                }
+            } catch { }
+            DispatchQueue.main.async {
+                errorCallback("An unknown error occurred.")
+            }
+        }).resume()
+    }
+    
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        let message = url.host?.removingPercentEncoding
-        let alertController = UIAlertController(title: "Incoming Message", message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-        alertController.addAction(okAction)
+        guard (url.pathComponents.count == 3) else {
+            return true
+        }
         
-        window?.rootViewController?.present(alertController, animated: true, completion: nil)
+        let id = url.pathComponents[1]
+        let token = url.pathComponents[2]
         
+        apiVerify(id: id, token: token, callback: {
+            print("Success")
+        }, error: { message in
+            print("Error: \(message)")
+        })
+    
         return true
     }
 
