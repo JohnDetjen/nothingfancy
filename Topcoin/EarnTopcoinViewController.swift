@@ -9,6 +9,8 @@
 import UIKit
 
 class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
+    
+    var mainViewController:AssetsViewController?
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var textName: UITextField!
@@ -18,6 +20,8 @@ class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var bottomScrollViewConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var doneButton: UIButton!
+    
+    var EarnTopcoinButton: UIView!
     
     
     override func viewDidLoad() {
@@ -100,5 +104,16 @@ class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        UserDefaults.standard.set(1, forKey: "earnedTopcoin")
+        UserDefaults.standard.synchronize()
 
+        self.loadHomeScreen()
+    }
+    
+    func loadHomeScreen() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as! UITabBarController
+        self.present(vc, animated: false, completion: nil)
+    }
+    
 }

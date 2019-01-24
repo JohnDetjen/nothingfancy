@@ -13,6 +13,18 @@ class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var logIn: UIButton!
+    @IBOutlet weak var logInButtonHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var logInButtonTrailing: NSLayoutConstraint!
+    @IBOutlet weak var logInButtonLeading: NSLayoutConstraint!
+    @IBOutlet weak var privacyTop: NSLayoutConstraint!
+    @IBOutlet weak var privacyBottom: NSLayoutConstraint!
+    @IBOutlet weak var privacyButton: UIButton!
+    @IBOutlet weak var logoTop: NSLayoutConstraint!
+    @IBOutlet weak var logoLeading: NSLayoutConstraint!
+    @IBOutlet weak var logoHeight: NSLayoutConstraint!
+    @IBOutlet weak var topcoinTextLogo: UILabel!
+    @IBOutlet weak var descriptionText: UILabel!
 
     
     
@@ -20,7 +32,66 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         addReusableViewController()
         
-        logIn.layer.cornerRadius = 25.0
+        //iPad Pro 12.9
+        if view.frame.width == 1024 {
+            logoTop.constant = 200
+            logoLeading.constant = 100
+            logoHeight.constant = 100
+            logIn.titleLabel?.font = UIFont(name: "Arial", size: 28)
+            topcoinTextLogo.font = UIFont(name: "Arial Rounded MT Bold", size: 60)
+            descriptionText.font = UIFont(name: "Arial", size: 35)
+            logInButtonHeight.constant = 90
+            logInButtonLeading.constant = 100
+            logInButtonTrailing.constant = 100
+            privacyTop.constant = 30
+            privacyBottom.constant = 60
+            privacyButton.titleLabel?.font = UIFont(name: "Arial", size: 24)
+        }
+        
+        //iPad Pro 10.5
+        if view.frame.width == 834 {
+            logoTop.constant = 160
+            logoLeading.constant = 90
+            logoHeight.constant = 85
+            logIn.titleLabel?.font = UIFont(name: "Arial", size: 25)
+            topcoinTextLogo.font = UIFont(name: "Arial Rounded MT Bold", size: 50)
+            descriptionText.font = UIFont(name: "Arial", size: 30)
+            logInButtonHeight.constant = 80
+            logInButtonLeading.constant = 90
+            logInButtonTrailing.constant = 90
+            privacyTop.constant = 30
+            privacyBottom.constant = 60
+            privacyButton.titleLabel?.font = UIFont(name: "Arial", size: 20)
+        }
+        
+        //iPad Air, 5th Gen
+        if view.frame.width == 768 {
+            logoTop.constant = 160
+            logoLeading.constant = 90
+            logoHeight.constant = 85
+            logIn.titleLabel?.font = UIFont(name: "Arial", size: 25)
+            topcoinTextLogo.font = UIFont(name: "Arial Rounded MT Bold", size: 50)
+            descriptionText.font = UIFont(name: "Arial", size: 30)
+            logInButtonHeight.constant = 80
+            logInButtonLeading.constant = 90
+            logInButtonTrailing.constant = 90
+            privacyTop.constant = 30
+            privacyBottom.constant = 60
+            privacyButton.titleLabel?.font = UIFont(name: "Arial", size: 20)
+        }
+        
+        //        //iphone 5
+        //        if view.frame.width == 320 {
+        //            logIn.titleLabel?.font = UIFont(name: "System", size: 15)
+        //            logInButtonHeight.constant = 50
+        //            logInButtonLeading.constant = 25
+        //            logInButtonTrailing.constant = 25
+        //            privacyTop.constant = 10
+        //            privacyBottom.constant = 5
+        //            privacyButton.titleLabel?.font = UIFont(name: "System", size: 9)
+        //        }
+        
+        logIn.layer.cornerRadius = 0.5 * logInButtonHeight.constant
         logIn.clipsToBounds = true
         
 

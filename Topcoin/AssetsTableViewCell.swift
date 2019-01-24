@@ -11,6 +11,10 @@ import UIKit
 class AssetsTableViewCell: UITableViewCell {
     @IBOutlet weak var sendImage: UIImageView!
     @IBOutlet weak var balanceLabel: UILabel!
+    @IBOutlet weak var cellTextHeader: UILabel!
+    @IBOutlet weak var cellTextDescription: UILabel!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

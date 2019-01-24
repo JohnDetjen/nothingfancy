@@ -74,6 +74,7 @@ class ManageWalletTableViewController: UITableViewController {
     @IBAction func logOutButtonPressed(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "email")
         UserDefaults.standard.removeObject(forKey: "balance")
+        UserDefaults.standard.removeObject(forKey: "earnedTopcoin")
         self.loadLoginScreen()
     }
     

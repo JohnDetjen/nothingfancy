@@ -29,6 +29,7 @@
 		437DCAEE21C1B56200183139 /* ManageWalletTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DCAED21C1B56200183139 /* ManageWalletTableViewController.swift */; };
 		437DCAF021C1C31D00183139 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */; };
 		4388D41C21CAC9B5002C2550 /* EcosystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */; };
+		43928F9F21F7BF47002F85B6 /* EarnTopcoinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43928F9E21F7BF47002F85B6 /* EarnTopcoinButton.swift */; };
 		43B1590221E54D3100EE3959 /* Invite2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B1590121E54D3000EE3959 /* Invite2ViewController.swift */; };
 		43B5C49D21F64D2E00517841 /* EarnTopcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B5C49C21F64D2E00517841 /* EarnTopcoinViewController.swift */; };
 		43F44AF221BECC7500A96054 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F44AF121BECC7500A96054 /* MeViewController.swift */; };
@@ -86,6 +87,7 @@
 		437DCAED21C1B56200183139 /* ManageWalletTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWalletTableViewController.swift; sourceTree = "<group>"; };
 		437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
 		4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcosystemViewController.swift; sourceTree = "<group>"; };
+		43928F9E21F7BF47002F85B6 /* EarnTopcoinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnTopcoinButton.swift; sourceTree = "<group>"; };
 		43B1590121E54D3000EE3959 /* Invite2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invite2ViewController.swift; sourceTree = "<group>"; };
 		43B5C49C21F64D2E00517841 /* EarnTopcoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnTopcoinViewController.swift; sourceTree = "<group>"; };
 		43F44AF121BECC7500A96054 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				43B1590121E54D3000EE3959 /* Invite2ViewController.swift */,
 				432DD88821AC58A00012F09B /* LaunchScreen.storyboard */,
 				432DD88621AC58A00012F09B /* Assets.xcassets */,
+				43928F9E21F7BF47002F85B6 /* EarnTopcoinButton.swift */,
 				4374FF6A21D465B600497EA7 /* ReusableViewController.swift */,
 				4337CC9D21CC312B00C508D3 /* WelcomeViewController.swift */,
 				4374FF6821D463F700497EA7 /* SignUpViewController.swift */,
@@ -456,6 +459,7 @@
 				430569F721B9C38D0079AD38 /* InviteViewController.swift in Sources */,
 				430569FD21BAED0B0079AD38 /* MerchantTableViewCell.swift in Sources */,
 				4374FF6921D463F700497EA7 /* SignUpViewController.swift in Sources */,
+				43928F9F21F7BF47002F85B6 /* EarnTopcoinButton.swift in Sources */,
 				43056A0121BAF91C0079AD38 /* AssetsTableViewCell.swift in Sources */,
 				43F44AF421BECC9F00A96054 /* MeTableViewCell.swift in Sources */,
 				436F5C1121DC246E00CD89A5 /* LogInViewController.swift in Sources */,

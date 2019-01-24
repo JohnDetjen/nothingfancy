@@ -11,14 +11,15 @@ import UIKit
 class CheckEmailViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var openMail: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addReusableViewController()
-
-        signInButton.layer.cornerRadius = 25.0
-        signInButton.clipsToBounds = true
-        // Do any additional setup after loading the view.
+        
+        openMail.layer.cornerRadius = 25
+        openMail.clipsToBounds = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,5 +50,8 @@ class CheckEmailViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-
+    @IBAction func openMailButtonPressed(_ sender: Any) {
+        UIApplication.shared.openURL(NSURL(string: "message:")! as URL)
+    }
+    
 }

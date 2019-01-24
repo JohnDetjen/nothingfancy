@@ -32,8 +32,10 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var balanceShown: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var earnTopcoinButton: UIButton!
+    @IBOutlet weak var earnTopcoinButtonHeight: NSLayoutConstraint!
     
     var loaded: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,23 +44,6 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.rowHeight = 90.0
         earnTopcoinButton.layer.cornerRadius = 25.0
         earnTopcoinButton.clipsToBounds = true
-        
-    
-        
-//        tableView.layer.cornerRadius = 5
-//        if #available(iOS 11.0, *) {
-//            tableView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//        } else {
-//            self.tableView.clipsToBounds = true
-//            let path = UIBezierPath(roundedRect: tableView.bounds,
-//                                    byRoundingCorners: [.topRight, .topLeft],
-//                                    cornerRadii: CGSize(width: 20, height: 20))
-//
-//            let maskLayer = CAShapeLayer()
-//
-//            maskLayer.path = path.cgPath
-//            tableView.layer.mask = maskLayer
-//        }
         
         userImage.layer.borderWidth = 0
         userImage.layer.masksToBounds = false
@@ -70,7 +55,11 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func reloadBalance() {
         getBalance { balance in
-            self.balanceShown.text = "\(balance)"
+            if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1) {
+                self.balanceShown.text = "\(balance+100)0"
+            } else {
+                self.balanceShown.text = "\(balance)0"
+            }
             UserDefaults.standard.set(balance, forKey: "balance")
             self.tableView.reloadData()
         }
@@ -78,11 +67,24 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
-        if UserDefaults.standard.object(forKey: "balance") != nil {
-            let balance = UserDefaults.standard.double(forKey: "balance")
-            self.balanceShown.text = "\(balance)"
+        
+        if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1) {
+            earnTopcoinButtonHeight.constant = 0
+            if UserDefaults.standard.object(forKey: "balance") != nil {
+                let balance = UserDefaults.standard.double(forKey: "balance")
+                self.balanceShown.text = "\(balance+100)0"
+            } else {
+                self.balanceShown.text = "100.00"
+            }
+            
         } else {
-            self.balanceShown.text = "00.00"
+            earnTopcoinButtonHeight.constant = 50
+            if UserDefaults.standard.object(forKey: "balance") != nil {
+                let balance = UserDefaults.standard.double(forKey: "balance")
+                self.balanceShown.text = "\(balance)0"
+            } else {
+                self.balanceShown.text = "0.00"
+            }
         }
         reloadBalance()
     }
@@ -97,6 +99,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 ////                self.present(loginNavigation, animated: true, completion: nil)
 //            }
 //        }
+        
     }
     
     func getBalance(callback: @escaping (Double) -> Void) {
@@ -143,13 +146,19 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 1
     }
     
+    func onUserAction(data: String)
+    {
+        print("Data received: \(data)")
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AssetsTableViewCell
         
         cell.contentView.backgroundColor = UIColor.clear
         
-        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 20, y: 8, width: self.view.frame.size.width - 40, height: 80))
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 20, y: 8, width: self.view.frame.size.width - 40, height: 75))
         
         whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
         whiteRoundedView.layer.masksToBounds = false
@@ -161,25 +170,64 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.contentView.sendSubviewToBack(whiteRoundedView)
         
         switch (indexPath.section, indexPath.row) {
+            
         case (0,0):
-            let balance = UserDefaults.standard.double(forKey: "balance")
-            cell.balanceLabel.text = "\(balance)"
-            cell.sendImage.image = UIImage(named: "downArrow")
-
+            if(UserDefaults.standard.object(forKey: "balance") == nil){
+                if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1){
+                    cell.balanceLabel.text = "100.00"
+                    cell.sendImage.image = UIImage(named: "downArrow")
+                    cell.cellTextHeader.text = "Received"
+                    cell.cellTextDescription.text = "from Topcoin"
+                }else{
+                    cell.balanceLabel.text = ""
+                    cell.sendImage.image = UIImage(named: "topcoinLogoDarkSmall")
+                    cell.cellTextHeader.text = "No transactions yet"
+                    cell.cellTextDescription.text = "Transaction details here"
+                }
+            }else{
+                if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1){
+                    cell.balanceLabel.text = "100.00"
+                    cell.sendImage.image = UIImage(named: "downArrow")
+                    cell.cellTextHeader.text = "Received"
+                    cell.cellTextDescription.text = "from Topcoin"
+                }else{
+                    let balance = UserDefaults.standard.double(forKey: "balance")
+                    cell.balanceLabel.text = "\(balance)0"
+                    cell.sendImage.image = UIImage(named: "downArrow")
+                    cell.cellTextHeader.text = "Received"
+                    cell.cellTextDescription.text = "from Uniregistry"
+                }
+            }
+            
+        case (0,1):
+            if(UserDefaults.standard.object(forKey: "balance") == nil){
+                cell.isHidden = true
+            }else{
+                if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1){
+                    let balance = UserDefaults.standard.double(forKey: "balance")
+                    cell.balanceLabel.text = "\(balance)0"
+                    cell.sendImage.image = UIImage(named: "downArrow")
+                    cell.cellTextHeader.text = "Received"
+                    cell.cellTextDescription.text = "from Uniregistry"
+                }else{
+                    cell.isHidden = true
+                }
+            }
         default : break
         }
-
         return cell
-        
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        
-//    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         let hasBalanace = UserDefaults.standard.object(forKey: "balance") != nil
-        return hasBalanace ? 1 : 0
+        return hasBalanace ? 2 : 2
+    }
+    
+    func loadHomeScreen() {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as! UITabBarController
+        self.present(vc, animated: true, completion: nil)
     }
 
 }

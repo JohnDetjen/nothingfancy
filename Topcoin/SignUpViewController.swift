@@ -215,10 +215,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as! UITabBarController
         self.present(vc, animated: true, completion: nil)
-//        if let AssetsViewController = storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as? AssetsViewController {
-//            let homeNavigation = UINavigationController(rootViewController: AssetsViewController)
-////            self.present(homeNavigation, animated: false, completion: nil)
-//            self.navigationController?.dismiss(animated: true, completion: nil)
         }
 //    }
     
