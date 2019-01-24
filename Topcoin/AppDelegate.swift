@@ -10,6 +10,32 @@ import UIKit
 import Parse
 import Sparrow
 
+struct ApiUserDTO : Codable {
+    let email : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case email = "email"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        email = try values.decodeIfPresent(String.self, forKey: .email)
+    }
+}
+
+struct ApiVerifySuccessDTO : Codable {
+    let user : ApiUserDTO?
+    
+    enum CodingKeys: String, CodingKey {
+        case user = "user"
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        user = try values.decodeIfPresent(ApiUserDTO.self, forKey: .user)
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -36,7 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func apiVerify(id: String, token: String, callback: @escaping () -> Void, error errorCallback: @escaping (String) -> Void) {
+    func apiVerify(id: String, token: String, callback: @escaping (String, String) -> Void, error errorCallback: @escaping (String) -> Void) {
         var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/v1/users/\(id)")!)
         request.httpMethod = "GET"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -46,13 +72,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
             do {
                 let jsonDecoder = JSONDecoder()
-                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
-                if errorModel.error == nil {
+                let verifySuccessModel = try jsonDecoder.decode(ApiVerifySuccessDTO.self, from: data!)
+                if let email = verifySuccessModel.user?.email {
                     DispatchQueue.main.async {
-                        callback()
+                        callback(email, token)
                     }
                     return
                 }
+            } catch { }
+            do {
+                let jsonDecoder = JSONDecoder()
+                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
                 if let message = errorModel.message {
                     DispatchQueue.main.async {
                         errorCallback(message)
@@ -74,8 +104,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let id = url.pathComponents[1]
         let token = url.pathComponents[2]
         
-        apiVerify(id: id, token: token, callback: {
+        apiVerify(id: id, token: token, callback: { email, token in
             print("Success")
+            UserDefaults.standard.set(email, forKey: "email")
             UserDefaults.standard.set(token, forKey: "token")
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let main = storyBoard.instantiateViewController(withIdentifier: "AssetsViewController") as! UITabBarController

@@ -202,7 +202,6 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         apiSignup(email: textEmail.text ?? "", callback: {
-            UserDefaults.standard.set(self.textEmail.text, forKey: "email")
             self.loadCheckEmailScreen()
         }, error: { message in
             let alert = UIAlertController(title: "Sign Up Failed", message: message, preferredStyle: .alert)
