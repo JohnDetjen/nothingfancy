@@ -70,26 +70,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         request.setValue("ios-app-v1", forHTTPHeaderField: "App-Agent")
         
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            do {
-                let jsonDecoder = JSONDecoder()
-                let verifySuccessModel = try jsonDecoder.decode(ApiVerifySuccessDTO.self, from: data!)
-                if let email = verifySuccessModel.user?.email {
-                    DispatchQueue.main.async {
-                        callback(email, token)
+            if let data = data {
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let verifySuccessModel = try jsonDecoder.decode(ApiVerifySuccessDTO.self, from: data)
+                    if let email = verifySuccessModel.user?.email {
+                        DispatchQueue.main.async {
+                            callback(email, token)
+                        }
+                        return
                     }
-                    return
-                }
-            } catch { }
-            do {
-                let jsonDecoder = JSONDecoder()
-                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
-                if let message = errorModel.message {
-                    DispatchQueue.main.async {
-                        errorCallback(message)
+                } catch { }
+                do {
+                    let jsonDecoder = JSONDecoder()
+                    let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data)
+                    if let message = errorModel.message {
+                        DispatchQueue.main.async {
+                            errorCallback(message)
+                        }
+                        return
                     }
-                    return
-                }
-            } catch { }
+                } catch { }
+            }
             DispatchQueue.main.async {
                 errorCallback("An unknown error occurred.")
             }
