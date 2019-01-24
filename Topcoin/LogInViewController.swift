@@ -163,11 +163,11 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         let escapedEmail = email.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 //        let escapedPassword = password.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
 //        let escapedName = name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        let body = "grant_type=password&email=\(escapedEmail)&username="
+        let body = "email=\(escapedEmail)"
 //        \(escapedEmail)&password=\(escapedPassword)&firstName=\(escapedName)&lastName=User"
 //        let body = "grant_type=password&email=\(escapedEmail)&username=\(escapedEmail)&password=\(escapedPassword)&firstName=\(escapedName)&lastName=User"
         
-        var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/v1/users")!)
+        var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/auth/magicLogin")!)
         request.httpMethod = "POST"
         request.httpBody = body.data(using: .utf8)
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -176,17 +176,13 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
             do {
                 let jsonDecoder = JSONDecoder()
-                let successModel = try jsonDecoder.decode(ApiSuccessDTO.self, from: data!)
-                if successModel.status == "success" {
+                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
+                if errorModel.error == nil {
                     DispatchQueue.main.async {
                         callback()
                     }
                     return
                 }
-            } catch { }
-            do {
-                let jsonDecoder = JSONDecoder()
-                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
                 if let message = errorModel.message {
                     DispatchQueue.main.async {
                         errorCallback(message)
@@ -206,9 +202,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         apiSignup(email: textEmail.text ?? "", callback: {
-//             apiSignup(email: textEmail.text ?? "", password: textPassword.text ?? "", name: textName.text ?? "", callback: {
-//            UserDefaults.standard.set(self.textEmail.text, forKey: "email")
-//            self.navigationController?.dismiss(animated: true, completion: nil)
+            UserDefaults.standard.set(self.textEmail.text, forKey: "email")
             self.loadCheckEmailScreen()
         }, error: { message in
             let alert = UIAlertController(title: "Sign Up Failed", message: message, preferredStyle: .alert)

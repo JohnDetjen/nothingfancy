@@ -46,17 +46,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
             do {
                 let jsonDecoder = JSONDecoder()
-                let successModel = try jsonDecoder.decode(ApiSuccessDTO.self, from: data!)
-                if successModel.status == "success" {
+                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
+                if errorModel.error == nil {
                     DispatchQueue.main.async {
                         callback()
                     }
                     return
                 }
-            } catch { }
-            do {
-                let jsonDecoder = JSONDecoder()
-                let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data!)
                 if let message = errorModel.message {
                     DispatchQueue.main.async {
                         errorCallback(message)
@@ -71,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
         guard (url.pathComponents.count == 3) else {
             return true
         }
@@ -81,11 +76,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         apiVerify(id: id, token: token, callback: {
             print("Success")
+            UserDefaults.standard.set(token, forKey: "token")
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let main = storyBoard.instantiateViewController(withIdentifier: "AssetsViewController") as! UITabBarController
+            self.topMostController()?.present(main, animated: false, completion: nil)
         }, error: { message in
             print("Error: \(message)")
         })
     
         return true
+    }
+    
+    func topMostController() -> UIViewController? {
+        guard let window = UIApplication.shared.keyWindow, let rootViewController = window.rootViewController else {
+            return nil
+        }
+        
+        var topController = rootViewController
+        
+        while let newTopController = topController.presentedViewController {
+            topController = newTopController
+        }
+        
+        return topController
     }
 
     func saveInstallationObject(){

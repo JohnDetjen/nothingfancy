@@ -92,14 +92,12 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-//        if UserDefaults.standard.string(forKey: "email") == nil {
-////            if let welcomeVC = storyboard?.instantiateViewController(withIdentifier: "WelcomeVC") as? WelcomeViewController {
-////                let loginNavigation = UINavigationController(rootViewController: welcomeVC)
-////                self.present(loginNavigation, animated: true, completion: nil)
-//            }
-//        }
         
+        if UserDefaults.standard.string(forKey: "email") == nil || UserDefaults.standard.string(forKey: "token") == nil {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storyBoard.instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeViewController
+            self.present(viewController, animated: true, completion: nil)
+        }
     }
     
     func getBalance(callback: @escaping (Double) -> Void) {

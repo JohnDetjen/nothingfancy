@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HAC-N6-mnT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WSY-wd-zdc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -789,7 +789,6 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="doneButtonPressed:" destination="wPr-F9-qZe" eventType="touchUpInside" id="SVP-Bv-QlV"/>
-                                                            <segue destination="lLR-U6-w0d" kind="presentation" animates="NO" id="0Vu-95-go0"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your email address to sign in" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0FD-fM-xEZ">
@@ -2061,24 +2060,24 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="247" height="247"/>
-        <image name="aboutIcon" width="20" height="20"/>
-        <image name="cardBackground" width="666" height="296"/>
-        <image name="copyLink" width="17" height="17"/>
-        <image name="downArrow" width="381" height="381"/>
-        <image name="groupInvite" width="60" height="60"/>
-        <image name="inviteTabBarIcon" width="22" height="22"/>
-        <image name="merchantTabBarIcon" width="25" height="21"/>
-        <image name="sendEmail" width="20" height="22"/>
-        <image name="sendText" width="21" height="18"/>
-        <image name="shard1" width="2586" height="2590"/>
-        <image name="share" width="16" height="21"/>
-        <image name="topcoinIcon" width="23" height="23"/>
-        <image name="topcoinLogoDark" width="114" height="114"/>
-        <image name="topcoinLogoDarkSmall" width="51" height="51"/>
-        <image name="userTabBarIcon" width="19" height="21"/>
-        <image name="walletIcon" width="20" height="18"/>
-        <image name="walletTabBarIcon" width="22" height="20"/>
+        <image name="BackButton" width="494" height="494"/>
+        <image name="aboutIcon" width="41" height="41"/>
+        <image name="cardBackground" width="1333" height="593"/>
+        <image name="copyLink" width="35" height="35"/>
+        <image name="downArrow" width="763" height="763"/>
+        <image name="groupInvite" width="120" height="120"/>
+        <image name="inviteTabBarIcon" width="45" height="45"/>
+        <image name="merchantTabBarIcon" width="51" height="42"/>
+        <image name="sendEmail" width="41" height="45"/>
+        <image name="sendText" width="42" height="37"/>
+        <image name="shard1" width="5172" height="5180"/>
+        <image name="share" width="33" height="42"/>
+        <image name="topcoinIcon" width="47" height="47"/>
+        <image name="topcoinLogoDark" width="229" height="229"/>
+        <image name="topcoinLogoDarkSmall" width="102" height="102"/>
+        <image name="userTabBarIcon" width="38" height="42"/>
+        <image name="walletIcon" width="41" height="37"/>
+        <image name="walletTabBarIcon" width="45" height="41"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
