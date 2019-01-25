@@ -49,7 +49,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfT-iT-Ped">
-                                        <rect key="frame" x="30" y="40" width="70.5" height="23.5"/>
+                                        <rect key="frame" x="30" y="40" width="72.5" height="25.5"/>
                                         <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -696,7 +696,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Topcoin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gcp-ES-fRV">
-                                <rect key="frame" x="85" y="103.5" width="116.5" height="38.5"/>
+                                <rect key="frame" x="85" y="102" width="119.5" height="41.5"/>
                                 <fontDescription key="fontDescription" name="Nunito-SemiBold" family="Nunito" pointSize="33"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -2096,26 +2096,129 @@
             </objects>
             <point key="canvasLocation" x="1890" y="1344"/>
         </scene>
+        <!--Verify View Controller-->
+        <scene sceneID="aeD-wz-0hP">
+            <objects>
+                <viewController storyboardIdentifier="VerifyViewController" id="Zs1-wM-aNw" customClass="VerifyViewController" customModule="Topcoin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oR8-l5-kkC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGS-Xk-Z19">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </containerView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vh6-Sf-S5N">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-cf-8tG">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9sX-61-sCt">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging in..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57z-G2-Ubi">
+                                                        <rect key="frame" x="30" y="100" width="156" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="9f4-WG-MPF"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Verifying your credentials now..." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fae-gf-HgS">
+                                                        <rect key="frame" x="30" y="155" width="285" height="70"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="70" id="eu7-Sv-yyF"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBN-Ot-fhk">
+                                                        <rect key="frame" x="20" y="30" width="30" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="h0Q-AS-IXw"/>
+                                                        </constraints>
+                                                        <state key="normal" image="BackButton"/>
+                                                        <connections>
+                                                            <action selector="backButtonPressed:" destination="M8K-u6-yD8" eventType="touchUpInside" id="LYz-9d-kAL"/>
+                                                            <action selector="backButtonPressed:" destination="HAC-N6-mnT" eventType="touchUpInside" id="Y5w-0Q-36P"/>
+                                                            <action selector="backButtonPressed:" destination="Zs1-wM-aNw" eventType="touchUpInside" id="ZMj-ge-iLF"/>
+                                                            <action selector="backButtonPressed:" destination="TWA-NO-uNb" eventType="touchUpInside" id="fu6-aM-ANm"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="fae-gf-HgS" firstAttribute="leading" secondItem="57z-G2-Ubi" secondAttribute="leading" id="0E6-Ut-W9E"/>
+                                                    <constraint firstItem="fae-gf-HgS" firstAttribute="top" secondItem="57z-G2-Ubi" secondAttribute="bottom" constant="5" id="8Gu-uP-9Yq"/>
+                                                    <constraint firstItem="57z-G2-Ubi" firstAttribute="top" secondItem="9sX-61-sCt" secondAttribute="top" constant="100" id="Dnh-to-4YY"/>
+                                                    <constraint firstItem="MBN-Ot-fhk" firstAttribute="top" secondItem="9sX-61-sCt" secondAttribute="top" constant="30" id="I0a-8W-iMc"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fae-gf-HgS" secondAttribute="trailing" constant="60" id="MNo-bf-bEb"/>
+                                                    <constraint firstItem="57z-G2-Ubi" firstAttribute="leading" secondItem="9sX-61-sCt" secondAttribute="leading" constant="30" id="Nvn-nd-kOz"/>
+                                                    <constraint firstItem="MBN-Ot-fhk" firstAttribute="leading" secondItem="9sX-61-sCt" secondAttribute="leading" constant="20" id="lZY-Rc-G4n"/>
+                                                    <constraint firstItem="MBN-Ot-fhk" firstAttribute="width" secondItem="MBN-Ot-fhk" secondAttribute="height" multiplier="1:1" id="qUl-LQ-AB4"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="9sX-61-sCt" firstAttribute="leading" secondItem="GcP-cf-8tG" secondAttribute="leading" id="OFW-Nm-Ndw"/>
+                                            <constraint firstAttribute="bottom" secondItem="9sX-61-sCt" secondAttribute="bottom" id="RJf-It-cXT"/>
+                                            <constraint firstAttribute="trailing" secondItem="9sX-61-sCt" secondAttribute="trailing" id="VMf-lr-7Il"/>
+                                            <constraint firstItem="9sX-61-sCt" firstAttribute="top" secondItem="GcP-cf-8tG" secondAttribute="top" id="m91-QR-wZc"/>
+                                            <constraint firstItem="9sX-61-sCt" firstAttribute="centerX" secondItem="GcP-cf-8tG" secondAttribute="centerX" id="vW5-Dy-gf0"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GcP-cf-8tG" firstAttribute="leading" secondItem="vh6-Sf-S5N" secondAttribute="leading" id="eWc-A0-HFr"/>
+                                    <constraint firstAttribute="bottom" secondItem="GcP-cf-8tG" secondAttribute="bottom" id="fa3-iu-aQa"/>
+                                    <constraint firstAttribute="trailing" secondItem="GcP-cf-8tG" secondAttribute="trailing" id="rCD-9A-VWR"/>
+                                    <constraint firstItem="GcP-cf-8tG" firstAttribute="top" secondItem="vh6-Sf-S5N" secondAttribute="top" id="xT3-So-5qO"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="TGS-Xk-Z19" firstAttribute="top" secondItem="oR8-l5-kkC" secondAttribute="top" id="8lQ-ST-gqH"/>
+                            <constraint firstAttribute="bottom" secondItem="vh6-Sf-S5N" secondAttribute="bottom" id="EMq-LU-9hV"/>
+                            <constraint firstItem="TGS-Xk-Z19" firstAttribute="bottom" secondItem="HtX-PV-ifN" secondAttribute="bottom" id="IH5-Le-utx"/>
+                            <constraint firstItem="GcP-cf-8tG" firstAttribute="width" secondItem="oR8-l5-kkC" secondAttribute="width" id="RJn-aR-Myw"/>
+                            <constraint firstAttribute="trailing" secondItem="vh6-Sf-S5N" secondAttribute="trailing" id="ZFL-RU-ahq"/>
+                            <constraint firstItem="vh6-Sf-S5N" firstAttribute="top" secondItem="oR8-l5-kkC" secondAttribute="top" id="dCk-YX-VZa"/>
+                            <constraint firstAttribute="trailing" secondItem="TGS-Xk-Z19" secondAttribute="trailing" id="lBa-FQ-m8U"/>
+                            <constraint firstItem="vh6-Sf-S5N" firstAttribute="leading" secondItem="oR8-l5-kkC" secondAttribute="leading" id="mue-tH-Yws"/>
+                            <constraint firstItem="TGS-Xk-Z19" firstAttribute="leading" secondItem="oR8-l5-kkC" secondAttribute="leading" id="z83-8B-0Fw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HtX-PV-ifN"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="TGS-Xk-Z19" id="aCf-4w-kNm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RbY-Pf-IQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-631" y="1433"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="247" height="247"/>
-        <image name="aboutIcon" width="20" height="20"/>
-        <image name="cardBackground" width="666" height="296"/>
-        <image name="copyLink" width="17" height="17"/>
-        <image name="downArrow" width="381" height="381"/>
-        <image name="groupInvite" width="60" height="60"/>
-        <image name="inviteTabBarIcon" width="22" height="22"/>
-        <image name="merchantTabBarIcon" width="25" height="21"/>
-        <image name="sendEmail" width="20" height="22"/>
-        <image name="sendText" width="21" height="18"/>
-        <image name="shard1" width="2586" height="2590"/>
-        <image name="share" width="16" height="21"/>
-        <image name="topcoinIcon" width="23" height="23"/>
-        <image name="topcoinLogoDark" width="114" height="114"/>
-        <image name="topcoinLogoDarkSmall" width="51" height="51"/>
-        <image name="userTabBarIcon" width="19" height="21"/>
-        <image name="walletIcon" width="20" height="18"/>
-        <image name="walletTabBarIcon" width="22" height="20"/>
+        <image name="BackButton" width="494" height="494"/>
+        <image name="aboutIcon" width="41" height="41"/>
+        <image name="cardBackground" width="1333" height="593"/>
+        <image name="copyLink" width="35" height="35"/>
+        <image name="downArrow" width="763" height="763"/>
+        <image name="groupInvite" width="120" height="120"/>
+        <image name="inviteTabBarIcon" width="45" height="45"/>
+        <image name="merchantTabBarIcon" width="51" height="42"/>
+        <image name="sendEmail" width="41" height="45"/>
+        <image name="sendText" width="42" height="37"/>
+        <image name="shard1" width="5172" height="5180"/>
+        <image name="share" width="33" height="42"/>
+        <image name="topcoinIcon" width="47" height="47"/>
+        <image name="topcoinLogoDark" width="229" height="229"/>
+        <image name="topcoinLogoDarkSmall" width="102" height="102"/>
+        <image name="userTabBarIcon" width="38" height="42"/>
+        <image name="walletIcon" width="41" height="37"/>
+        <image name="walletTabBarIcon" width="45" height="41"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

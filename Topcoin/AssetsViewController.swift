@@ -101,42 +101,6 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         reloadBalance()
     }
     
-    func apiVerify(id: String, token: String, callback: @escaping (String, String) -> Void, error errorCallback: @escaping (String) -> Void) {
-        var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/v1/users/\(id)")!)
-        request.httpMethod = "GET"
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        request.setValue("ios-app-v1", forHTTPHeaderField: "App-Agent")
-        
-        URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            if let data = data {
-                do {
-                    let jsonDecoder = JSONDecoder()
-                    let verifySuccessModel = try jsonDecoder.decode(ApiVerifySuccessDTO.self, from: data)
-                    if let email = verifySuccessModel.user?.email {
-                        DispatchQueue.main.async {
-                            callback(email, token)
-                        }
-                        return
-                    }
-                } catch { }
-                do {
-                    let jsonDecoder = JSONDecoder()
-                    let errorModel = try jsonDecoder.decode(ApiErrorDTO.self, from: data)
-                    if let message = errorModel.message {
-                        DispatchQueue.main.async {
-                            errorCallback(message)
-                        }
-                        return
-                    }
-                } catch { }
-            }
-            DispatchQueue.main.async {
-                errorCallback("An unknown error occurred.")
-            }
-        }).resume()
-    }
-    
     
     func reloadBalance() {
         getBalance { balance in
@@ -176,33 +140,9 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     
-    func loadLogin() {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyBoard.instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeViewController
-        self.present(viewController, animated: true, completion: nil)
-    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if let token = UserDefaults.standard.string(forKey: "token") {
-            if let id = UserDefaults.standard.string(forKey: "id") {
-                if UserDefaults.standard.string(forKey: "email") == nil {
-                    apiVerify(id: id, token: token, callback: { email, token in
-                        UserDefaults.standard.set(email, forKey: "email")
-                        UserDefaults.standard.set(token, forKey: "token")
-                        UserDefaults.standard.set(id, forKey: "id")
-                        self.reloadBalance()
-                    }, error: { message in
-                        self.loadLogin()
-                    })
-                }
-            } else {
-                self.loadLogin()
-            }
-        } else {
-            self.loadLogin()
-        }
     }
     
     func getBalance(callback: @escaping (Double) -> Void) {

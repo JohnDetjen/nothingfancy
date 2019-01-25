@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05DF9E3A21FA9EC8003EA9C6 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF9E3921FA9EC8003EA9C6 /* VerifyViewController.swift */; };
 		430569F721B9C38D0079AD38 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569F621B9C38C0079AD38 /* InviteViewController.swift */; };
 		430569F921B9D3190079AD38 /* MerchantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569F821B9D3190079AD38 /* MerchantsViewController.swift */; };
 		430569FD21BAED0B0079AD38 /* MerchantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569FC21BAED0A0079AD38 /* MerchantTableViewCell.swift */; };
@@ -67,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		04ACC47E55601F299029BB53 /* Pods_TopcoinTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TopcoinTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		05DF9E3921FA9EC8003EA9C6 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		3F57154CC5C95E2261A87D66 /* Pods_Topcoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Topcoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		430569F621B9C38C0079AD38 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
 		430569F821B9D3190079AD38 /* MerchantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantsViewController.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				436F5C1021DC246E00CD89A5 /* LogInViewController.swift */,
 				43292B9921EFA47400A3C92F /* ForgotPasswordViewController.swift */,
 				43292B9721EF8D7200A3C92F /* CheckEmailViewController.swift */,
+				05DF9E3921FA9EC8003EA9C6 /* VerifyViewController.swift */,
 				43292B9B21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift */,
 				430569FE21BAF80B0079AD38 /* AssetsViewController.swift */,
 				43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */,
@@ -506,6 +509,7 @@
 				43928F9F21F7BF47002F85B6 /* EarnTopcoinButton.swift in Sources */,
 				43056A0121BAF91C0079AD38 /* AssetsTableViewCell.swift in Sources */,
 				43F44AF421BECC9F00A96054 /* MeTableViewCell.swift in Sources */,
+				05DF9E3A21FA9EC8003EA9C6 /* VerifyViewController.swift in Sources */,
 				436F5C1121DC246E00CD89A5 /* LogInViewController.swift in Sources */,
 				432DD88021AC589E0012F09B /* AppDelegate.swift in Sources */,
 				43292B9C21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift in Sources */,

@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserDefaults.standard.set(id, forKey: "id")
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let main = storyBoard.instantiateViewController(withIdentifier: "AssetsViewController") as! UITabBarController
+        let main = storyBoard.instantiateViewController(withIdentifier: "VerifyViewController") as! VerifyViewController
         self.topMostController()?.present(main, animated: false, completion: nil)
     
         return true
