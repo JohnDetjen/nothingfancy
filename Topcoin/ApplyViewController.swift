@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Parse
 
-class ApplyViewController: UIViewController {
+class ApplyViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var yourNameTextField: UITextField!
@@ -16,53 +17,75 @@ class ApplyViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var yourMessageTextField: UITextField!
     @IBOutlet weak var submitMessage: UIButton!
+    @IBOutlet weak var nameMessage: UILabel!
+    @IBOutlet weak var countryTextField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
-    let myPickerData = ["Registrar", "Registry", "Web Hosting", "SSL", "Website Creator", "Other"]
+    @IBOutlet var textFields: [UITextField]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addReusableViewController()
         
-//        let thePicker = UIPickerView()
-//        businessTypeTextField.inputView = thePicker
-//        thePicker.delegate = self
+        yourNameTextField.delegate = self
+        emailAddressTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        countryTextField.delegate = self
+        
+        nameMessage.isHidden = true
         
         submitMessage.layer.cornerRadius = 25.0
         submitMessage.clipsToBounds = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGesture)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        addReusableViewController()
     }
     
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        for textField in self.view.subviews where textField is UITextField {
-            textField.resignFirstResponder()
-        }
-        return true
+    @objc func keyboardWillShow(notification:NSNotification){
+        var userInfo = notification.userInfo!
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height
+        scrollView.contentInset = contentInset
     }
     
+    @objc func keyboardWillHide(notification:NSNotification){
+        
+        let contentInset:UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        switch textField {
+        case yourNameTextField:
+            phoneNumberTextField.becomeFirstResponder()
+        case phoneNumberTextField:
+            emailAddressTextField.becomeFirstResponder()
+        case emailAddressTextField:
+            countryTextField.becomeFirstResponder()
+        default:
+            countryTextField.resignFirstResponder()
+        }
 
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//
-//    func pickerView( _ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return myPickerData.count
-//    }
-//
-//    func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return myPickerData[row]
-//    }
-//
-//    func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        businessTypeTextField.text = myPickerData[row]
-//        self.view.endEditing(true)
-//    }
+        return true
+    }
     
     func addReusableViewController() {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: String(describing: ReusableViewController.self)) as? ReusableViewController else { return }
@@ -85,6 +108,67 @@ class ApplyViewController: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
+    }
+    
+    
+    @IBAction func applyButtonPressed(_ sender: Any) {
+        
+        guard let textname = yourNameTextField.text, yourNameTextField.text?.characters.count != 0
+            
+            else {
+                nameMessage.isHidden = false
+                nameMessage.text = "Please enter company name"
+                return
+        }
+        guard let phonenumber = phoneNumberTextField.text, phoneNumberTextField.text?.characters.count != 0
+            
+            else {
+                nameMessage.isHidden = false
+                nameMessage.text = "Please enter company phone number"
+                return
+        }
+        
+        guard let address = emailAddressTextField.text, emailAddressTextField.text?.characters.count != 0
+            
+            else {
+                nameMessage.isHidden = false
+                nameMessage.text = "Please enter company address"
+                return
+        }
+        
+        guard let country = countryTextField.text, countryTextField.text?.characters.count != 0
+            
+            else {
+                nameMessage.isHidden = false
+                nameMessage.text = "Please enter company country"
+                return
+        }
+        
+        if let textname = yourNameTextField.text {
+            PFUser.current()?.setValue(textname, forKey: "companyName")
+        }
+        if let phonenumber = phoneNumberTextField.text {
+            PFUser.current()?.setValue(phonenumber, forKey: "companyPhoneNumber")
+        }
+        if let address = emailAddressTextField.text {
+            PFUser.current()?.setValue(address, forKey: "companyAddress")
+        }
+        if let country = countryTextField.text {
+            PFUser.current()?.setValue(country, forKey: "companyCountry")
+        }
+        PFUser.current()?.saveInBackground(block: { (success, error) in
+            if success {
+            }
+        })
+        
+        
+        self.loadHomeScreen()
+    }
+    
+    
+    func loadHomeScreen() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as! UITabBarController
+        self.present(vc, animated: false, completion: nil)
     }
     
 

@@ -95,7 +95,7 @@ class InviteViewController: UIViewController, MFMailComposeViewControllerDelegat
         
         mailComposerVC.setToRecipients([""])
         mailComposerVC.setSubject("Inviting you to Topcoin")
-        mailComposerVC.setMessageBody("Hi,\n\nI've been using Topcoin to get discounts on digital goods such as domains, hosting, SSL, website creation and more.\n\nSign up now and get 100 free Topcoin.\n\nClaim your invite now:\nlink\n\nLet me know if you need help.\nThanks.", isHTML: false)
+        mailComposerVC.setMessageBody("Hey,\n\nI've been using Topcoin to get discounts on digital goods such as domains, hosting, SSL, website creation and more.\n\nSign up now and get 100 free Topcoin.\n\nClaim your invite now:\nhttp://bit.ly/topcoinrewards\n\nLet me know if you need help.\nThanks.", isHTML: false)
         
         return mailComposerVC
     }
@@ -113,7 +113,7 @@ class InviteViewController: UIViewController, MFMailComposeViewControllerDelegat
     @IBAction func sendTextPressed(_ sender: Any) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.body = "Hi,\n\nI've been using Topcoin to get discounts on digital goods such as domains, hosting, SSL, website creation and more.\n\nSign up now and get 100 free Topcoin.\n\nClaim your invite now:\nlink\n\nLet me know if you need help.\nThanks."
+            controller.body = "Hey,\n\nI've been using Topcoin to get discounts on digital goods such as domains, hosting, SSL, website creation and more.\n\nSign up now and get 100 free Topcoin.\n\nClaim your invite now:\nhttp://bit.ly/topcoinrewards\n\nLet me know if you need help.\nThanks."
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
         }
@@ -130,12 +130,12 @@ class InviteViewController: UIViewController, MFMailComposeViewControllerDelegat
     
     
     @IBAction func sharePressed(_ sender: Any) {
-        "Hi,\n\nI've been using Topcoin to get discounts on digital goods such as domains, hosting, SSL, website creation and more.\n\nSign up now and get 100 free Topcoin.\n\nClaim your invite now:\nlink\n\nLet me know if you need help.\nThanks.".share()
+        "Hey,\n\nI've been using Topcoin to get discounts on digital goods such as domains, hosting, SSL, website creation and more.\n\nSign up now and get 100 free Topcoin.\n\nClaim your invite now:\nhttp://bit.ly/topcoinrewards\n\nLet me know if you need help.\nThanks.".share()
     }
     
     
     @IBAction func copyLink(_ sender: Any) {
-        UIPasteboard.general.string = "Hi,\n\nI've been using Topcoin to get discounts on digital goods such as domains, hosting, SSL, website creation and more.\n\nSign up now and get 100 free Topcoin.\n\nClaim your invite now:\nlink\n\nLet me know if you need help.\nThanks."
+        UIPasteboard.general.string = "Hey,\n\nI've been using Topcoin to get discounts on digital goods such as domains, hosting, SSL, website creation and more.\n\nSign up now and get 100 free Topcoin.\n\nClaim your invite now:\nhttp://bit.ly/topcoinrewards\n\nLet me know if you need help.\nThanks."
     }
     
     @IBAction func termsConditionsPressed(_ sender: Any) {

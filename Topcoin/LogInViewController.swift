@@ -201,6 +201,27 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
+        
+        let user = PFUser()
+        let username = textEmail.text
+        let password = textEmail.text
+        user.username = username
+        user.password = password
+        
+        MBProgressHUD.showAdded(to: view, animated: false)
+        user.signUpInBackground {
+            (success, error) -> Void in
+            MBProgressHUD.hide(for: self.view, animated: false)
+            
+            if let error = error as NSError? {
+                let errorString = error.userInfo["error"] as? NSString
+                self.alert(message: errorString!, title: "Error")
+                
+            } else {
+//                self.alert(message: "Registered successfully", title: "Registering")
+            }
+        }
+        
         apiSignup(email: textEmail.text ?? "", callback: {
             self.loadCheckEmailScreen()
         }, error: { message in

@@ -56,5 +56,9 @@
 			</array>
 		</dict>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Nunito-Medium.ttf</string>
+	</array>
 </dict>
 </plist>

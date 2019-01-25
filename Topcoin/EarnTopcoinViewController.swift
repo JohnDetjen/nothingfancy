@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
     
@@ -18,6 +19,9 @@ class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textCountry: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var bottomScrollViewConstraint: NSLayoutConstraint!
+    @IBOutlet weak var nameMessage: UILabel!
+    
+    @IBOutlet var textFields: [UITextField]!
     
     @IBOutlet weak var doneButton: UIButton!
     
@@ -27,6 +31,9 @@ class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         addReusableViewController()
+        
+        nameMessage.isHidden = true
+        
         
         textName.delegate = self
         textPhoneNumber.delegate = self
@@ -40,6 +47,7 @@ class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+        
 
     }
     
@@ -50,9 +58,18 @@ class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
+
     
-    func textFieldShouldReturn(_ textEmail: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        switch textField {
+        case textName:
+            textPhoneNumber.becomeFirstResponder()
+        case textPhoneNumber:
+            textCountry.becomeFirstResponder()
+        default:
+            textCountry.resignFirstResponder()
+        }
         return true
     }
     
@@ -105,6 +122,45 @@ class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
+        
+        guard let textname = textName.text, textName.text?.characters.count != 0
+            
+            else {
+            nameMessage.isHidden = false
+            nameMessage.text = "Please enter your name"
+            return
+            }
+        guard let phonenumber = textPhoneNumber.text, textPhoneNumber.text?.characters.count != 0
+            
+            else {
+                nameMessage.isHidden = false
+                nameMessage.text = "Please enter your phone number"
+                return
+        }
+        
+        guard let country = textCountry.text, textCountry.text?.characters.count != 0
+            
+            else {
+                nameMessage.isHidden = false
+                nameMessage.text = "Please enter your country"
+                return
+        }
+        
+        if let textname = textName.text {
+            PFUser.current()?.setValue(textname, forKey: "name")
+        }
+        if let phonenumber = textPhoneNumber.text {
+            PFUser.current()?.setValue(phonenumber, forKey: "phoneNumber")
+        }
+        if let country = textCountry.text {
+            PFUser.current()?.setValue(country, forKey: "country")
+        }
+        PFUser.current()?.saveInBackground(block: { (success, error) in
+            if success {
+            }
+        })
+        
+
         UserDefaults.standard.set(1, forKey: "earnedTopcoin")
         UserDefaults.standard.synchronize()
 
@@ -115,5 +171,4 @@ class EarnTopcoinViewController: UIViewController, UITextFieldDelegate {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AssetsViewController") as! UITabBarController
         self.present(vc, animated: false, completion: nil)
     }
-    
 }

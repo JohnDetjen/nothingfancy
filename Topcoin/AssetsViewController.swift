@@ -77,6 +77,28 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         userImage.layer.cornerRadius = 5
 //        userImage?.layer.cornerRadius = userImage.frame.height/2
         userImage.clipsToBounds = true
+        
+        
+        if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1) {
+            earnTopcoinButtonHeight.constant = 0
+            if UserDefaults.standard.object(forKey: "balance") != nil {
+                let balance = UserDefaults.standard.double(forKey: "balance")
+                self.balanceShown.text = "\(balance+100)0"
+            } else {
+                self.balanceShown.text = "100.00"
+            }
+            
+        } else {
+            earnTopcoinButtonHeight.constant = 50
+            if UserDefaults.standard.object(forKey: "balance") != nil {
+                let balance = UserDefaults.standard.double(forKey: "balance")
+                self.balanceShown.text = "\(balance)0"
+            } else {
+                self.balanceShown.text = "0.00"
+            }
+        }
+
+        reloadBalance()
     }
     
     func apiVerify(id: String, token: String, callback: @escaping (String, String) -> Void, error errorCallback: @escaping (String) -> Void) {
@@ -149,6 +171,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.balanceShown.text = "0.00"
             }
         }
+        
         reloadBalance()
     }
 
@@ -188,6 +211,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         URLSession.shared.dataTask(with: request, completionHandler: { data, response, error -> Void in
             do {
+                print(String(data:data!,encoding: .utf8))
                 let jsonDecoder = JSONDecoder()
                 let responseModel = try jsonDecoder.decode(BalanceDTO.self, from: data!)
                 if let balance = responseModel.old_balance {
