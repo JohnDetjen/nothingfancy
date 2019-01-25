@@ -222,7 +222,8 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        apiSignup(email: textEmail.text ?? "", callback: {
+        let email = textEmail.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        apiSignup(email: email, callback: {
             self.loadCheckEmailScreen()
         }, error: { message in
             let alert = UIAlertController(title: "Sign Up Failed", message: message, preferredStyle: .alert)

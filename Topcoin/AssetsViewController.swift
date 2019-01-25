@@ -192,6 +192,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         UserDefaults.standard.set(email, forKey: "email")
                         UserDefaults.standard.set(token, forKey: "token")
                         UserDefaults.standard.set(id, forKey: "id")
+                        self.reloadBalance()
                     }, error: { message in
                         self.loadLogin()
                     })
@@ -205,7 +206,8 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func getBalance(callback: @escaping (Double) -> Void) {
-        guard let email = UserDefaults.standard.string(forKey: "email") else { return }
+        print("get balance")
+        guard let email = UserDefaults.standard.string(forKey: "email")?.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
         var request = URLRequest(url: URL(string: "https://api.topcoin.network/origin/api/v1/public/accountBalance/\(email)")!)
         request.httpMethod = "GET"
         
