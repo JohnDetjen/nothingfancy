@@ -88,6 +88,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         addReusableViewController()
         
         //iPad Pro 12.9
@@ -169,6 +170,12 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         reloadBalance()
     }
     
+    func loadLogin() {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "WelcomeVC") as! WelcomeViewController
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
     
     func reloadBalance() {
         getBalance { balance in
@@ -183,6 +190,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         self.tableView.reloadData()
         
         if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1) {
@@ -211,6 +219,11 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if UserDefaults.standard.string(forKey: "email") == nil || UserDefaults.standard.string(forKey: "token") == nil {
+            self.loadLogin()
+            return
+        }
     }
     
     func getBalance(callback: @escaping (Double) -> Void) {

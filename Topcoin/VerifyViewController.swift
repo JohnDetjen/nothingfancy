@@ -67,6 +67,11 @@ class VerifyViewController: UIViewController {
         UserDefaults.standard.set(id, forKey: "id")
         self.loadAssets()
     }
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addReusableViewController()
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         if let token = UserDefaults.standard.string(forKey: "token") {
@@ -92,12 +97,6 @@ class VerifyViewController: UIViewController {
         } else {
             self.loadLogin()
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addReusableViewController()
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
