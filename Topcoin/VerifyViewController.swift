@@ -68,14 +68,16 @@ class VerifyViewController: UIViewController {
         self.loadAssets()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        addReusableViewController()
-        
+    override func viewDidAppear(_ animated: Bool) {
         if let token = UserDefaults.standard.string(forKey: "token") {
             if let id = UserDefaults.standard.string(forKey: "id") {
-                if UserDefaults.standard.string(forKey: "email") == nil {
-                    let start = DispatchTime.now()
+                let start = DispatchTime.now()
+                if let email = UserDefaults.standard.string(forKey: "email") {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: start + 2, execute: {
+                        self.success(id: id, token: token, email: email)
+                    })
+                } else {
                     apiVerify(id: id, token: token, callback: { email, token in
                         DispatchQueue.main.asyncAfter(deadline: start + 2, execute: {
                             self.success(id: id, token: token, email: email)
@@ -90,6 +92,12 @@ class VerifyViewController: UIViewController {
         } else {
             self.loadLogin()
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        addReusableViewController()
+    
     }
     
     override func viewWillAppear(_ animated: Bool) {

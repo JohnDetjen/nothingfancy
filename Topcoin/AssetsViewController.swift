@@ -59,6 +59,29 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var earnTopcoinButton: UIButton!
     @IBOutlet weak var earnTopcoinButtonHeight: NSLayoutConstraint!
+    @IBOutlet weak var userImageTop: NSLayoutConstraint!
+    @IBOutlet weak var userImageLeading: NSLayoutConstraint!
+    @IBOutlet weak var userImageTrailing: NSLayoutConstraint!
+    @IBOutlet weak var userImageBottom: NSLayoutConstraint!
+    @IBOutlet weak var userImageHeight: NSLayoutConstraint!
+    @IBOutlet weak var earnTopcoinLeading: NSLayoutConstraint!
+    @IBOutlet weak var earnTopcoinTrailing: NSLayoutConstraint!
+    @IBOutlet weak var activityLeading: NSLayoutConstraint!
+    @IBOutlet weak var activityLabel: UILabel!
+    @IBOutlet weak var topcoinLabel: UILabel!
+    @IBOutlet weak var topcoinLabelLeading: NSLayoutConstraint!
+    @IBOutlet weak var topcoinLabelTop: NSLayoutConstraint!
+    @IBOutlet weak var topcoinLogoHeight: NSLayoutConstraint!
+    @IBOutlet weak var topcoinLogoTrailing: NSLayoutConstraint!
+    @IBOutlet weak var topcoinLogoBottom: NSLayoutConstraint!
+    @IBOutlet weak var totalAssetsLabel: UILabel!
+    @IBOutlet weak var balanceShownTop: NSLayoutConstraint!
+    @IBOutlet weak var tableViewLeading: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTrailing: NSLayoutConstraint!
+    @IBOutlet weak var tableViewTop: NSLayoutConstraint!
+    @IBOutlet weak var activityTop: NSLayoutConstraint!
+    
+    
     
     var loaded: Bool = false
     
@@ -66,9 +89,54 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         addReusableViewController()
+        
+        //iPad Pro 12.9
+        if view.frame.width == 1024 {
+            self.tableView.rowHeight = 150.0
+            userImageTop.constant = 50
+            userImageHeight.constant = 350
+            earnTopcoinLeading.constant = 100
+            earnTopcoinTrailing.constant = 100
+            activityTop.constant = 40
+            earnTopcoinButtonHeight.constant = 80
+            earnTopcoinButton.titleLabel?.font = UIFont(name: "Arial", size: 28)
+            activityLabel.font = UIFont(name: "Arial", size: 30)
+            topcoinLabel.font = UIFont(name: "Nunito", size: 50)
+            totalAssetsLabel.font = UIFont(name: "Arial", size: 25)
+            balanceShown.font = UIFont(name: "Arial", size: 65)
+            balanceShownTop.constant = 20
+            topcoinLabelLeading.constant = 30
+            topcoinLabelTop.constant = 30
+            activityLeading.constant = 90
+            userImageLeading.constant = 80
+            userImageTrailing.constant = 80
+            userImageBottom.constant = 70
+            topcoinLogoHeight.constant = 75
+            topcoinLogoBottom.constant = -35
+            topcoinLogoTrailing.constant = -35
+            tableViewLeading.constant = 70
+            tableViewTrailing.constant = 80
+            tableViewTop.constant = 15
+            
+        
+        }
+        
+        //iPad Pro 10.5
+        if view.frame.width == 834 {
+            
+        }
+        
+        //iPad Air, 5th Gen
+        if view.frame.width == 768 {
+            
+        }
+        
+        //        //iphone 5
+        //        if view.frame.width == 320 {
+        //        }
 
         self.tableView.rowHeight = 90.0
-        earnTopcoinButton.layer.cornerRadius = 25.0
+        earnTopcoinButton.layer.cornerRadius = 0.5 * earnTopcoinButtonHeight.constant
         earnTopcoinButton.clipsToBounds = true
         
         userImage.layer.borderWidth = 0
@@ -89,7 +157,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
         } else {
-            earnTopcoinButtonHeight.constant = 50
+            earnTopcoinButtonHeight.constant = earnTopcoinButtonHeight.constant
             if UserDefaults.standard.object(forKey: "balance") != nil {
                 let balance = UserDefaults.standard.double(forKey: "balance")
                 self.balanceShown.text = "\(balance)0"
@@ -127,7 +195,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             
         } else {
-            earnTopcoinButtonHeight.constant = 50
+            earnTopcoinButtonHeight.constant = earnTopcoinButtonHeight.constant
             if UserDefaults.standard.object(forKey: "balance") != nil {
                 let balance = UserDefaults.standard.double(forKey: "balance")
                 self.balanceShown.text = "\(balance)0"
@@ -203,7 +271,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.contentView.backgroundColor = UIColor.clear
         
-        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 20, y: 8, width: self.view.frame.size.width - 40, height: 75))
+        let whiteRoundedView : UIView = UIView(frame: CGRect(x: 20, y: 8, width: self.view.frame.size.width - 40, height: self.tableView.rowHeight - 25))
         
         whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
         whiteRoundedView.layer.masksToBounds = false

@@ -12,13 +12,57 @@ class EcosystemViewController: UIViewController {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var applyButton: UIButton!
+    @IBOutlet weak var tokensDistributedLabel: UILabel!
+    @IBOutlet weak var tokenCountLabel: UILabel!
+    @IBOutlet weak var walletHoldersLabel: UILabel!
+    @IBOutlet weak var walletCountLabel: UILabel!
+    @IBOutlet weak var walletHoldersTop: NSLayoutConstraint!
+    @IBOutlet weak var tokensDistributedLeading: NSLayoutConstraint!
+    @IBOutlet weak var tokensDistributedTop: NSLayoutConstraint!
+    @IBOutlet weak var applyButtonHeight: NSLayoutConstraint!
+    @IBOutlet weak var applyButtonLeading: NSLayoutConstraint!
+    @IBOutlet weak var applyButtonTrailing: NSLayoutConstraint!
+    @IBOutlet weak var over90DaysLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addReusableViewController()
+        
+        //iPad Pro 12.9
+        if view.frame.width == 1024 {
+            
+            tokensDistributedLabel.font = UIFont(name: "Arial", size: 55)
+            tokenCountLabel.font = UIFont(name: "Arial", size: 45)
+            walletHoldersLabel.font = UIFont(name: "Arial", size: 55)
+            walletCountLabel.font = UIFont(name: "Arial", size: 45)
+            walletHoldersTop.constant = 50
+            tokensDistributedLeading.constant = 70
+            tokensDistributedTop.constant = 70
+            applyButtonHeight.constant = 80
+            applyButtonLeading.constant = 100
+            applyButtonTrailing.constant = 100
+            applyButton.titleLabel?.font = UIFont(name: "Arial", size: 28)
+            over90DaysLabel.font = UIFont(name: "Arial", size: 20)
+            
+            
+        }
+        
+        //iPad Pro 10.5
+        if view.frame.width == 834 {
+            
+        }
+        
+        //iPad Air, 5th Gen
+        if view.frame.width == 768 {
+            
+        }
+        
+        //        //iphone 5
+        //        if view.frame.width == 320 {
+        //        }
 
-        applyButton.layer.cornerRadius = 25.0
+        applyButton.layer.cornerRadius = 0.5 * applyButtonHeight.constant
         applyButton.clipsToBounds = true
         
     }

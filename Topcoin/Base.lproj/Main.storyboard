@@ -194,13 +194,34 @@
                     <tabBarItem key="tabBarItem" title="Assets" image="walletTabBarIcon" id="PaH-Hh-rkG"/>
                     <navigationItem key="navigationItem" id="JAV-uP-x0N"/>
                     <connections>
+                        <outlet property="activityLabel" destination="MFp-Ei-Wcq" id="G9F-vq-MNi"/>
+                        <outlet property="activityLeading" destination="HAS-WE-eeN" id="hQ4-oh-1Io"/>
+                        <outlet property="activityTop" destination="Syi-Cb-4uc" id="V5z-tV-tt7"/>
                         <outlet property="activityView" destination="L45-tB-dFk" id="mPW-1X-wL6"/>
                         <outlet property="balanceShown" destination="3ev-OP-6K3" id="WSV-Du-0Vl"/>
+                        <outlet property="balanceShownTop" destination="Jy2-Cj-07K" id="LC1-Ll-r7H"/>
                         <outlet property="containerView" destination="PhW-I5-tlx" id="nc3-Bf-mj1"/>
                         <outlet property="earnTopcoinButton" destination="FEW-K0-EdI" id="Jdj-iY-MR2"/>
-                        <outlet property="earnTopcoinButtonHeight" destination="1ut-Q5-4KU" id="LMY-mW-Yqc"/>
+                        <outlet property="earnTopcoinButtonHeight" destination="1ut-Q5-4KU" id="av3-NJ-YSH"/>
+                        <outlet property="earnTopcoinLeading" destination="pNE-nR-8UH" id="XHQ-OS-E6I"/>
+                        <outlet property="earnTopcoinTrailing" destination="pfA-H5-9kL" id="M3h-I4-m8K"/>
                         <outlet property="tableView" destination="gIF-fw-mlx" id="MUm-ig-FrR"/>
+                        <outlet property="tableViewLeading" destination="7ks-r7-HBl" id="hp3-Dh-tak"/>
+                        <outlet property="tableViewTop" destination="qUw-Vc-aoe" id="gBO-gN-COb"/>
+                        <outlet property="tableViewTrailing" destination="K28-1j-6D6" id="Xfh-JK-dNs"/>
+                        <outlet property="topcoinLabel" destination="qfT-iT-Ped" id="kVc-BP-zbk"/>
+                        <outlet property="topcoinLabelLeading" destination="veq-Fp-WIn" id="l2x-8j-Eer"/>
+                        <outlet property="topcoinLabelTop" destination="5Ua-FB-yJF" id="SfG-x3-EAH"/>
+                        <outlet property="topcoinLogoBottom" destination="vzE-6f-vPj" id="B0j-Iw-gpz"/>
+                        <outlet property="topcoinLogoHeight" destination="18H-BS-pTW" id="xRr-VG-Nig"/>
+                        <outlet property="topcoinLogoTrailing" destination="jyn-Gb-fF7" id="mL2-cP-xdW"/>
+                        <outlet property="totalAssetsLabel" destination="Avw-iC-FOZ" id="a85-Hl-82A"/>
                         <outlet property="userImage" destination="iQq-kx-jdm" id="1Tt-FF-Kqd"/>
+                        <outlet property="userImageBottom" destination="LlD-IZ-qq2" id="wri-yg-cf9"/>
+                        <outlet property="userImageHeight" destination="9qM-BV-PZ3" id="JYG-3v-m7o"/>
+                        <outlet property="userImageLeading" destination="JWU-Lf-49g" id="JJ5-dx-BEx"/>
+                        <outlet property="userImageTop" destination="Cca-XK-9G6" id="hNB-kT-anG"/>
+                        <outlet property="userImageTrailing" destination="cKe-AP-x04" id="ONt-oC-p3X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8Z-PE-gIk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -304,7 +325,18 @@
                     <navigationItem key="navigationItem" title="Network" id="oah-X3-bNQ"/>
                     <connections>
                         <outlet property="applyButton" destination="WYc-O5-1zU" id="GTt-Ou-EwQ"/>
+                        <outlet property="applyButtonHeight" destination="agk-ts-7ew" id="2wl-Im-IID"/>
+                        <outlet property="applyButtonLeading" destination="XlL-Nr-9fD" id="urb-ax-Jzh"/>
+                        <outlet property="applyButtonTrailing" destination="QvK-Wn-N1h" id="3O7-al-QEd"/>
                         <outlet property="containerView" destination="CNm-US-80e" id="7oP-lt-Br8"/>
+                        <outlet property="over90DaysLabel" destination="YoH-Fo-8gQ" id="GxQ-og-0J4"/>
+                        <outlet property="tokenCountLabel" destination="YFa-MX-TAB" id="RMB-em-BUe"/>
+                        <outlet property="tokensDistributedLabel" destination="jQj-Rn-rcM" id="aWv-Um-klR"/>
+                        <outlet property="tokensDistributedLeading" destination="7Ph-lL-fUd" id="DQ9-vC-aeq"/>
+                        <outlet property="tokensDistributedTop" destination="7Aa-cv-nj7" id="Q5b-OB-7AB"/>
+                        <outlet property="walletCountLabel" destination="WMs-0Y-REh" id="sSd-TJ-fI6"/>
+                        <outlet property="walletHoldersLabel" destination="VrE-uj-lye" id="iVb-Xc-hcZ"/>
+                        <outlet property="walletHoldersTop" destination="lgr-ej-GTU" id="hG6-Ae-aKa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qD-5z-mlS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -480,6 +512,7 @@
                         <outlet property="copyLink" destination="lGz-rM-G4S" id="z8E-yA-UfH"/>
                         <outlet property="groupIcon" destination="q3h-6v-dvx" id="9EE-yw-eLH"/>
                         <outlet property="sendEmail" destination="j2n-q9-GBt" id="KrJ-th-kQ0"/>
+                        <outlet property="sendEmailHeight" destination="dpD-Xa-4Mq" id="2El-32-trB"/>
                         <outlet property="sendText" destination="P7i-hH-UNb" id="cmV-mZ-ejk"/>
                         <outlet property="share" destination="OOW-r7-yxE" id="gQt-Qu-4g2"/>
                     </connections>
@@ -2107,13 +2140,13 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TGS-Xk-Z19">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </containerView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vh6-Sf-S5N">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vh6-Sf-S5N">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-cf-8tG">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcP-cf-8tG">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9sX-61-sCt">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9sX-61-sCt">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="370"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logging in..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57z-G2-Ubi">
@@ -2133,29 +2166,14 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MBN-Ot-fhk">
-                                                        <rect key="frame" x="20" y="30" width="30" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="h0Q-AS-IXw"/>
-                                                        </constraints>
-                                                        <state key="normal" image="BackButton"/>
-                                                        <connections>
-                                                            <action selector="backButtonPressed:" destination="M8K-u6-yD8" eventType="touchUpInside" id="LYz-9d-kAL"/>
-                                                            <action selector="backButtonPressed:" destination="HAC-N6-mnT" eventType="touchUpInside" id="Y5w-0Q-36P"/>
-                                                            <action selector="backButtonPressed:" destination="Zs1-wM-aNw" eventType="touchUpInside" id="ZMj-ge-iLF"/>
-                                                            <action selector="backButtonPressed:" destination="TWA-NO-uNb" eventType="touchUpInside" id="fu6-aM-ANm"/>
-                                                        </connections>
-                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="fae-gf-HgS" firstAttribute="leading" secondItem="57z-G2-Ubi" secondAttribute="leading" id="0E6-Ut-W9E"/>
                                                     <constraint firstItem="fae-gf-HgS" firstAttribute="top" secondItem="57z-G2-Ubi" secondAttribute="bottom" constant="5" id="8Gu-uP-9Yq"/>
-                                                    <constraint firstItem="57z-G2-Ubi" firstAttribute="top" secondItem="9sX-61-sCt" secondAttribute="top" constant="100" id="Dnh-to-4YY"/>
-                                                    <constraint firstItem="MBN-Ot-fhk" firstAttribute="top" secondItem="9sX-61-sCt" secondAttribute="top" constant="30" id="I0a-8W-iMc"/>
+                                                    <constraint firstAttribute="bottom" secondItem="fae-gf-HgS" secondAttribute="bottom" constant="145" id="CTR-cu-pWF"/>
                                                     <constraint firstAttribute="trailing" secondItem="fae-gf-HgS" secondAttribute="trailing" constant="60" id="MNo-bf-bEb"/>
                                                     <constraint firstItem="57z-G2-Ubi" firstAttribute="leading" secondItem="9sX-61-sCt" secondAttribute="leading" constant="30" id="Nvn-nd-kOz"/>
-                                                    <constraint firstItem="MBN-Ot-fhk" firstAttribute="leading" secondItem="9sX-61-sCt" secondAttribute="leading" constant="20" id="lZY-Rc-G4n"/>
-                                                    <constraint firstItem="MBN-Ot-fhk" firstAttribute="width" secondItem="MBN-Ot-fhk" secondAttribute="height" multiplier="1:1" id="qUl-LQ-AB4"/>
+                                                    <constraint firstItem="57z-G2-Ubi" firstAttribute="top" secondItem="9sX-61-sCt" secondAttribute="top" constant="100" id="xOw-cN-GEJ"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -2201,24 +2219,24 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackButton" width="494" height="494"/>
-        <image name="aboutIcon" width="41" height="41"/>
-        <image name="cardBackground" width="1333" height="593"/>
-        <image name="copyLink" width="35" height="35"/>
-        <image name="downArrow" width="763" height="763"/>
-        <image name="groupInvite" width="120" height="120"/>
-        <image name="inviteTabBarIcon" width="45" height="45"/>
-        <image name="merchantTabBarIcon" width="51" height="42"/>
-        <image name="sendEmail" width="41" height="45"/>
-        <image name="sendText" width="42" height="37"/>
-        <image name="shard1" width="5172" height="5180"/>
-        <image name="share" width="33" height="42"/>
-        <image name="topcoinIcon" width="47" height="47"/>
-        <image name="topcoinLogoDark" width="229" height="229"/>
-        <image name="topcoinLogoDarkSmall" width="102" height="102"/>
-        <image name="userTabBarIcon" width="38" height="42"/>
-        <image name="walletIcon" width="41" height="37"/>
-        <image name="walletTabBarIcon" width="45" height="41"/>
+        <image name="BackButton" width="247" height="247"/>
+        <image name="aboutIcon" width="20" height="20"/>
+        <image name="cardBackground" width="666" height="296"/>
+        <image name="copyLink" width="17" height="17"/>
+        <image name="downArrow" width="381" height="381"/>
+        <image name="groupInvite" width="60" height="60"/>
+        <image name="inviteTabBarIcon" width="22" height="22"/>
+        <image name="merchantTabBarIcon" width="25" height="21"/>
+        <image name="sendEmail" width="20" height="22"/>
+        <image name="sendText" width="21" height="18"/>
+        <image name="shard1" width="2586" height="2590"/>
+        <image name="share" width="16" height="21"/>
+        <image name="topcoinIcon" width="23" height="23"/>
+        <image name="topcoinLogoDark" width="114" height="114"/>
+        <image name="topcoinLogoDarkSmall" width="51" height="51"/>
+        <image name="userTabBarIcon" width="19" height="21"/>
+        <image name="walletIcon" width="20" height="18"/>
+        <image name="walletTabBarIcon" width="22" height="20"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

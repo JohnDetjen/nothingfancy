@@ -208,14 +208,14 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         user.username = username
         user.password = password
         
-        MBProgressHUD.showAdded(to: view, animated: false)
+//        MBProgressHUD.showAdded(to: view, animated: false)
         user.signUpInBackground {
             (success, error) -> Void in
-            MBProgressHUD.hide(for: self.view, animated: false)
+//            MBProgressHUD.hide(for: self.view, animated: false)
             
             if let error = error as NSError? {
                 let errorString = error.userInfo["error"] as? NSString
-                self.alert(message: errorString!, title: "Error")
+//                self.alert(message: errorString!, title: "Error")
                 
             } else {
 //                self.alert(message: "Registered successfully", title: "Registering")

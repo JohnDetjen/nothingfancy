@@ -20,6 +20,26 @@ class AssetsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
 //        balanceShown.isHidden = true
+        
+//        //iPad Pro 12.9
+//        if frame == 1024 {
+//
+//        }
+//
+//        //iPad Pro 10.5
+//        if view.frame.width == 834 {
+//
+//        }
+//
+//        //iPad Air, 5th Gen
+//        if view.frame.width == 768 {
+//
+//        }
+//
+//                //iphone 5
+//        if view.frame.width == 320 {
+//        }
+        
         sendImage.layer.cornerRadius = sendImage.frame.height/2
         sendImage.clipsToBounds = true
         

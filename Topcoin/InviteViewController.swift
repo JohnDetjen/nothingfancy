@@ -19,10 +19,31 @@ class InviteViewController: UIViewController, MFMailComposeViewControllerDelegat
     @IBOutlet weak var share: UIButton!
     @IBOutlet weak var copyLink: UIButton!
     @IBOutlet weak var groupIcon: UIImageView!
+    @IBOutlet weak var sendEmailHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addReusableViewController()
+        
+        //iPad Pro 12.9
+        if view.frame.width == 1024 {
+//            sendEmailHeight.constant = 80
+            
+        }
+        
+        //iPad Pro 10.5
+        if view.frame.width == 834 {
+            
+        }
+        
+        //iPad Air, 5th Gen
+        if view.frame.width == 768 {
+            
+        }
+        
+        //        //iphone 5
+        //        if view.frame.width == 320 {
+        //        }
                 
         groupIcon.layer.cornerRadius = 0.5 * groupIcon.bounds.size.width
         groupIcon.clipsToBounds = true
