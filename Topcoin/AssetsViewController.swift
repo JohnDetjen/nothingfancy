@@ -220,10 +220,16 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if UserDefaults.standard.string(forKey: "email") == nil || UserDefaults.standard.string(forKey: "token") == nil {
-            self.loadLogin()
-            return
+        if let email = UserDefaults.standard.string(forKey: "email") {
+            if let token = UserDefaults.standard.string(forKey: "token") {
+                do {
+                    try PFUser.logIn(withUsername: email, password: email)
+                } catch {}
+                return
+            }
         }
+        
+        self.loadLogin()
     }
     
     func getBalance(callback: @escaping (Double) -> Void) {
