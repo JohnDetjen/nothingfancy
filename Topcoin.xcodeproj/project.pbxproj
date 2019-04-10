@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		05DF9E3A21FA9EC8003EA9C6 /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DF9E3921FA9EC8003EA9C6 /* VerifyViewController.swift */; };
 		430569F721B9C38D0079AD38 /* InviteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569F621B9C38C0079AD38 /* InviteViewController.swift */; };
-		430569F921B9D3190079AD38 /* MerchantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569F821B9D3190079AD38 /* MerchantsViewController.swift */; };
-		430569FD21BAED0B0079AD38 /* MerchantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569FC21BAED0A0079AD38 /* MerchantTableViewCell.swift */; };
 		430569FF21BAF80B0079AD38 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430569FE21BAF80B0079AD38 /* AssetsViewController.swift */; };
 		43056A0121BAF91C0079AD38 /* AssetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */; };
 		43292B9821EF8D7200A3C92F /* CheckEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43292B9721EF8D7200A3C92F /* CheckEmailViewController.swift */; };
@@ -23,18 +21,19 @@
 		432DD89521AC58A10012F09B /* TopcoinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432DD89421AC58A10012F09B /* TopcoinTests.swift */; };
 		432DD8A021AC58A10012F09B /* TopcoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 432DD89F21AC58A10012F09B /* TopcoinUITests.swift */; };
 		4337CC9E21CC312B00C508D3 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4337CC9D21CC312B00C508D3 /* WelcomeViewController.swift */; };
+		434A994A221C7CC500F92799 /* MerchantTransfersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A9949221C7CC500F92799 /* MerchantTransfersViewController.swift */; };
+		434CADFF2205F926005AD2A6 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434CADFE2205F926005AD2A6 /* TransferViewController.swift */; };
+		434CAE07220749CF005AD2A6 /* TransferRecipientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434CAE06220749CF005AD2A6 /* TransferRecipientViewController.swift */; };
 		436F5C1121DC246E00CD89A5 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436F5C1021DC246E00CD89A5 /* LogInViewController.swift */; };
 		4374FF6921D463F700497EA7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374FF6821D463F700497EA7 /* SignUpViewController.swift */; };
 		4374FF6B21D465B600497EA7 /* ReusableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4374FF6A21D465B600497EA7 /* ReusableViewController.swift */; };
 		437DCAE821C17E4A00183139 /* ApplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DCAE721C17E4900183139 /* ApplyViewController.swift */; };
 		437DCAEE21C1B56200183139 /* ManageWalletTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DCAED21C1B56200183139 /* ManageWalletTableViewController.swift */; };
 		437DCAF021C1C31D00183139 /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */; };
+		4384DDEB221606B2006D1040 /* TransferRecipientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4384DDEA221606B2006D1040 /* TransferRecipientTableViewCell.swift */; };
 		4388D41C21CAC9B5002C2550 /* EcosystemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */; };
-		43928F9F21F7BF47002F85B6 /* EarnTopcoinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43928F9E21F7BF47002F85B6 /* EarnTopcoinButton.swift */; };
-		43B1590221E54D3100EE3959 /* Invite2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B1590121E54D3000EE3959 /* Invite2ViewController.swift */; };
 		43B5C49D21F64D2E00517841 /* EarnTopcoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B5C49C21F64D2E00517841 /* EarnTopcoinViewController.swift */; };
-		43F44AF221BECC7500A96054 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F44AF121BECC7500A96054 /* MeViewController.swift */; };
-		43F44AF421BECC9F00A96054 /* MeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F44AF321BECC9F00A96054 /* MeTableViewCell.swift */; };
+		43DD87522221F1DA00C8A932 /* EcosystemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DD87512221F1DA00C8A932 /* EcosystemTableViewCell.swift */; };
 		43F9E08F21FA5639009C9820 /* Nunito-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43F9E08621FA5638009C9820 /* Nunito-Medium.ttf */; };
 		43F9E09021FA5639009C9820 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 43F9E08721FA5638009C9820 /* SIL Open Font License.txt */; };
 		43F9E09121FA5639009C9820 /* Nunito-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 43F9E08821FA5638009C9820 /* Nunito-ExtraBold.ttf */; };
@@ -71,8 +70,6 @@
 		05DF9E3921FA9EC8003EA9C6 /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		3F57154CC5C95E2261A87D66 /* Pods_Topcoin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Topcoin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		430569F621B9C38C0079AD38 /* InviteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteViewController.swift; sourceTree = "<group>"; };
-		430569F821B9D3190079AD38 /* MerchantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantsViewController.swift; sourceTree = "<group>"; };
-		430569FC21BAED0A0079AD38 /* MerchantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantTableViewCell.swift; sourceTree = "<group>"; };
 		430569FE21BAF80B0079AD38 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
 		43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewCell.swift; sourceTree = "<group>"; };
 		43292B9721EF8D7200A3C92F /* CheckEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckEmailViewController.swift; sourceTree = "<group>"; };
@@ -91,18 +88,19 @@
 		432DD89F21AC58A10012F09B /* TopcoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopcoinUITests.swift; sourceTree = "<group>"; };
 		432DD8A121AC58A10012F09B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4337CC9D21CC312B00C508D3 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		434A9949221C7CC500F92799 /* MerchantTransfersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantTransfersViewController.swift; sourceTree = "<group>"; };
+		434CADFE2205F926005AD2A6 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		434CAE06220749CF005AD2A6 /* TransferRecipientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRecipientViewController.swift; sourceTree = "<group>"; };
 		436F5C1021DC246E00CD89A5 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		4374FF6821D463F700497EA7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		4374FF6A21D465B600497EA7 /* ReusableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewController.swift; sourceTree = "<group>"; };
 		437DCAE721C17E4900183139 /* ApplyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyViewController.swift; sourceTree = "<group>"; };
 		437DCAED21C1B56200183139 /* ManageWalletTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageWalletTableViewController.swift; sourceTree = "<group>"; };
 		437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTableViewController.swift; sourceTree = "<group>"; };
+		4384DDEA221606B2006D1040 /* TransferRecipientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferRecipientTableViewCell.swift; sourceTree = "<group>"; };
 		4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcosystemViewController.swift; sourceTree = "<group>"; };
-		43928F9E21F7BF47002F85B6 /* EarnTopcoinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnTopcoinButton.swift; sourceTree = "<group>"; };
-		43B1590121E54D3000EE3959 /* Invite2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Invite2ViewController.swift; sourceTree = "<group>"; };
 		43B5C49C21F64D2E00517841 /* EarnTopcoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarnTopcoinViewController.swift; sourceTree = "<group>"; };
-		43F44AF121BECC7500A96054 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
-		43F44AF321BECC9F00A96054 /* MeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeTableViewCell.swift; sourceTree = "<group>"; };
+		43DD87512221F1DA00C8A932 /* EcosystemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EcosystemTableViewCell.swift; sourceTree = "<group>"; };
 		43F9E08621FA5638009C9820 /* Nunito-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Medium.ttf"; sourceTree = "<group>"; };
 		43F9E08721FA5638009C9820 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
 		43F9E08821FA5638009C9820 /* Nunito-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -200,30 +198,15 @@
 			children = (
 				432DD87F21AC589E0012F09B /* AppDelegate.swift */,
 				432DD88321AC589E0012F09B /* Main.storyboard */,
-				43B1590121E54D3000EE3959 /* Invite2ViewController.swift */,
 				432DD88821AC58A00012F09B /* LaunchScreen.storyboard */,
 				432DD88621AC58A00012F09B /* Assets.xcassets */,
-				43928F9E21F7BF47002F85B6 /* EarnTopcoinButton.swift */,
 				4374FF6A21D465B600497EA7 /* ReusableViewController.swift */,
-				4337CC9D21CC312B00C508D3 /* WelcomeViewController.swift */,
-				4374FF6821D463F700497EA7 /* SignUpViewController.swift */,
-				436F5C1021DC246E00CD89A5 /* LogInViewController.swift */,
-				43292B9921EFA47400A3C92F /* ForgotPasswordViewController.swift */,
-				43292B9721EF8D7200A3C92F /* CheckEmailViewController.swift */,
-				05DF9E3921FA9EC8003EA9C6 /* VerifyViewController.swift */,
-				43292B9B21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift */,
-				430569FE21BAF80B0079AD38 /* AssetsViewController.swift */,
-				43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */,
-				43B5C49C21F64D2E00517841 /* EarnTopcoinViewController.swift */,
-				4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */,
-				437DCAE721C17E4900183139 /* ApplyViewController.swift */,
-				430569F821B9D3190079AD38 /* MerchantsViewController.swift */,
-				430569FC21BAED0A0079AD38 /* MerchantTableViewCell.swift */,
-				430569F621B9C38C0079AD38 /* InviteViewController.swift */,
-				43F44AF121BECC7500A96054 /* MeViewController.swift */,
-				43F44AF321BECC9F00A96054 /* MeTableViewCell.swift */,
-				437DCAED21C1B56200183139 /* ManageWalletTableViewController.swift */,
-				437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */,
+				434CAE002205FA26005AD2A6 /* Log In */,
+				434CAE012205FA92005AD2A6 /* Assets Tab */,
+				434CAE022205FABA005AD2A6 /* Transfer Tab */,
+				434CAE032205FACE005AD2A6 /* Mercants Tab */,
+				434CAE042205FAF0005AD2A6 /* Invite Tab */,
+				434CAE052205FB01005AD2A6 /* Me Tab */,
 				432DD88B21AC58A00012F09B /* Info.plist */,
 			);
 			path = Topcoin;
@@ -245,6 +228,68 @@
 				432DD8A121AC58A10012F09B /* Info.plist */,
 			);
 			path = TopcoinUITests;
+			sourceTree = "<group>";
+		};
+		434CAE002205FA26005AD2A6 /* Log In */ = {
+			isa = PBXGroup;
+			children = (
+				4337CC9D21CC312B00C508D3 /* WelcomeViewController.swift */,
+				4374FF6821D463F700497EA7 /* SignUpViewController.swift */,
+				436F5C1021DC246E00CD89A5 /* LogInViewController.swift */,
+				43292B9921EFA47400A3C92F /* ForgotPasswordViewController.swift */,
+				43292B9721EF8D7200A3C92F /* CheckEmailViewController.swift */,
+				05DF9E3921FA9EC8003EA9C6 /* VerifyViewController.swift */,
+				43292B9B21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift */,
+			);
+			path = "Log In";
+			sourceTree = "<group>";
+		};
+		434CAE012205FA92005AD2A6 /* Assets Tab */ = {
+			isa = PBXGroup;
+			children = (
+				430569FE21BAF80B0079AD38 /* AssetsViewController.swift */,
+				43056A0021BAF91C0079AD38 /* AssetsTableViewCell.swift */,
+			);
+			path = "Assets Tab";
+			sourceTree = "<group>";
+		};
+		434CAE022205FABA005AD2A6 /* Transfer Tab */ = {
+			isa = PBXGroup;
+			children = (
+				434CADFE2205F926005AD2A6 /* TransferViewController.swift */,
+				434CAE06220749CF005AD2A6 /* TransferRecipientViewController.swift */,
+				4384DDEA221606B2006D1040 /* TransferRecipientTableViewCell.swift */,
+				434A9949221C7CC500F92799 /* MerchantTransfersViewController.swift */,
+			);
+			path = "Transfer Tab";
+			sourceTree = "<group>";
+		};
+		434CAE032205FACE005AD2A6 /* Mercants Tab */ = {
+			isa = PBXGroup;
+			children = (
+				4388D41B21CAC9B5002C2550 /* EcosystemViewController.swift */,
+				43DD87512221F1DA00C8A932 /* EcosystemTableViewCell.swift */,
+				437DCAE721C17E4900183139 /* ApplyViewController.swift */,
+			);
+			path = "Mercants Tab";
+			sourceTree = "<group>";
+		};
+		434CAE042205FAF0005AD2A6 /* Invite Tab */ = {
+			isa = PBXGroup;
+			children = (
+				430569F621B9C38C0079AD38 /* InviteViewController.swift */,
+			);
+			path = "Invite Tab";
+			sourceTree = "<group>";
+		};
+		434CAE052205FB01005AD2A6 /* Me Tab */ = {
+			isa = PBXGroup;
+			children = (
+				437DCAED21C1B56200183139 /* ManageWalletTableViewController.swift */,
+				437DCAEF21C1C31D00183139 /* AboutTableViewController.swift */,
+				43B5C49C21F64D2E00517841 /* EarnTopcoinViewController.swift */,
+			);
+			path = "Me Tab";
 			sourceTree = "<group>";
 		};
 		43F9E08521FA5638009C9820 /* nunito */ = {
@@ -494,23 +539,22 @@
 			files = (
 				437DCAE821C17E4A00183139 /* ApplyViewController.swift in Sources */,
 				437DCAEE21C1B56200183139 /* ManageWalletTableViewController.swift in Sources */,
-				430569F921B9D3190079AD38 /* MerchantsViewController.swift in Sources */,
 				4388D41C21CAC9B5002C2550 /* EcosystemViewController.swift in Sources */,
 				43B5C49D21F64D2E00517841 /* EarnTopcoinViewController.swift in Sources */,
-				43B1590221E54D3100EE3959 /* Invite2ViewController.swift in Sources */,
 				437DCAF021C1C31D00183139 /* AboutTableViewController.swift in Sources */,
 				43292B9821EF8D7200A3C92F /* CheckEmailViewController.swift in Sources */,
+				43DD87522221F1DA00C8A932 /* EcosystemTableViewCell.swift in Sources */,
+				4384DDEB221606B2006D1040 /* TransferRecipientTableViewCell.swift in Sources */,
 				43292B9A21EFA47400A3C92F /* ForgotPasswordViewController.swift in Sources */,
-				43F44AF221BECC7500A96054 /* MeViewController.swift in Sources */,
 				4337CC9E21CC312B00C508D3 /* WelcomeViewController.swift in Sources */,
 				430569F721B9C38D0079AD38 /* InviteViewController.swift in Sources */,
-				430569FD21BAED0B0079AD38 /* MerchantTableViewCell.swift in Sources */,
+				434A994A221C7CC500F92799 /* MerchantTransfersViewController.swift in Sources */,
 				4374FF6921D463F700497EA7 /* SignUpViewController.swift in Sources */,
-				43928F9F21F7BF47002F85B6 /* EarnTopcoinButton.swift in Sources */,
 				43056A0121BAF91C0079AD38 /* AssetsTableViewCell.swift in Sources */,
-				43F44AF421BECC9F00A96054 /* MeTableViewCell.swift in Sources */,
+				434CAE07220749CF005AD2A6 /* TransferRecipientViewController.swift in Sources */,
 				05DF9E3A21FA9EC8003EA9C6 /* VerifyViewController.swift in Sources */,
 				436F5C1121DC246E00CD89A5 /* LogInViewController.swift in Sources */,
+				434CADFF2205F926005AD2A6 /* TransferViewController.swift in Sources */,
 				432DD88021AC589E0012F09B /* AppDelegate.swift in Sources */,
 				43292B9C21EFAB7F00A3C92F /* CheckEmailResetPasswordViewController.swift in Sources */,
 				4374FF6B21D465B600497EA7 /* ReusableViewController.swift in Sources */,

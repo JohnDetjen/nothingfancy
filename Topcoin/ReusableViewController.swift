@@ -45,6 +45,7 @@ class ReusableViewController: UIViewController {
 
     }
     
+    //shards animation
     override func viewDidAppear(_ animated: Bool) {
         self.shard1.frame.origin.y = view.frame.maxY
         UIView.animate(withDuration: 40, delay: 2.4, options: [.repeat], animations: {
