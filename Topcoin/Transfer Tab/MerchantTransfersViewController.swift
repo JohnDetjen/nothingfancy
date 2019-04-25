@@ -152,7 +152,7 @@ class MerchantTransfersViewController: UIViewController {
         let parameters: [String: String] = [
             "amount": amount,
             "toUserEmail": to_email,
-            "note": ""
+            "note": "Mobile transfer"
         ]
         request.httpBody = parameters.percentEscaped().data(using: .utf8)
         
