@@ -109,7 +109,7 @@ class EcosystemViewController: UIViewController, UITableViewDelegate, UITableVie
         //        if view.frame.width == 320 {
         //        }
 
-        applyButton.layer.cornerRadius = 0.5 * applyButtonHeight.constant
+        applyButton.layer.cornerRadius = 5
         applyButton.clipsToBounds = true
         
         if(UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad){
@@ -234,16 +234,16 @@ class EcosystemViewController: UIViewController, UITableViewDelegate, UITableVie
         //iPhone X, Xs, 6, 6s, 7, 8
         if view.frame.width == 375 {
             
-            let whiteRoundedView : UIView = UIView(frame: CGRect(x: 20, y: 8, width: self.view.frame.size.width - (40), height: self.tableView.rowHeight - 20))
-            
-            whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
-            whiteRoundedView.layer.masksToBounds = false
-            whiteRoundedView.layer.cornerRadius = 5
-            whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
-            whiteRoundedView.layer.shadowOpacity = 0.0
-            
-            cell.contentView.addSubview(whiteRoundedView)
-            cell.contentView.sendSubviewToBack(whiteRoundedView)
+//            let whiteRoundedView : UIView = UIView(frame: CGRect(x: 20, y: 8, width: self.view.frame.size.width - (40), height: self.tableView.rowHeight - 20))
+//            
+//            whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
+//            whiteRoundedView.layer.masksToBounds = false
+//            whiteRoundedView.layer.cornerRadius = 5
+//            whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+//            whiteRoundedView.layer.shadowOpacity = 0.0
+//            
+//            cell.contentView.addSubview(whiteRoundedView)
+//            cell.contentView.sendSubviewToBack(whiteRoundedView)
             
         }
         

@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Topcoin/Assets Tab/AssetsViewController.swift"
-            timestampString = "576627902.014207"
+            timestampString = "579212890.902244"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "404"
-            endingLineNumber = "404"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
             landmarkName = "getBalance(callback:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Topcoin/Transfer Tab/MerchantTransfersViewController.swift"
-            timestampString = "577385119.323246"
+            timestampString = "577919944.1418689"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"

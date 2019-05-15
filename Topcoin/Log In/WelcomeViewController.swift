@@ -30,7 +30,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addReusableViewController()
+//        addReusableViewController()
         
         //iPad Pro 12.9
         if view.frame.width == 1024 {
@@ -91,7 +91,7 @@ class WelcomeViewController: UIViewController {
         //            privacyButton.titleLabel?.font = UIFont(name: "System", size: 9)
         //        }
         
-        logIn.layer.cornerRadius = 0.5 * logInButtonHeight.constant
+        logIn.layer.cornerRadius = 5
         logIn.clipsToBounds = true
         
 

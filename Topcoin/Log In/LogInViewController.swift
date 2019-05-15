@@ -53,7 +53,7 @@ class LogInViewController: UIViewController, UITextFieldDelegate {
         
         textEmail.delegate = self
 
-        doneButton.layer.cornerRadius = 25.0
+        doneButton.layer.cornerRadius = 5
         doneButton.clipsToBounds = true
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))

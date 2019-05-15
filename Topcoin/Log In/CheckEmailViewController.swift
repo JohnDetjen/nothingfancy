@@ -17,8 +17,13 @@ class CheckEmailViewController: UIViewController {
         super.viewDidLoad()
         addReusableViewController()
         
-        openMail.layer.cornerRadius = 25
+        openMail.layer.cornerRadius = 5
         openMail.clipsToBounds = true
+        
+        openMail.layer.borderWidth = 1
+        openMail.layer.masksToBounds = false
+        let myBorderColor : UIColor = UIColor( red: 216/255, green: 216/255, blue: 216/255, alpha: 0.5 )
+        openMail.layer.borderColor = myBorderColor.cgColor
         
     }
     

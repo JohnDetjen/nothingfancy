@@ -104,6 +104,8 @@ struct TransactionsDTO : Codable {
 class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var activityView: UIView!
+    @IBOutlet weak var walletView: UIView!
+    @IBOutlet weak var behindTableView: UIView!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var balanceShown: UILabel!
@@ -242,38 +244,36 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.tableView.rowHeight = 130.0
         }
         else {
-           self.tableView.rowHeight = 90.0
+           self.tableView.rowHeight = 70.0
+        }
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+        if statusBar.responds(to: #selector(setter: UIView.backgroundColor)) {
+            statusBar.backgroundColor = UIColor(red: 37/255, green: 42/255, blue: 85/255, alpha: 1)
         }
 
-        sendTopcoin.layer.cornerRadius = 0.5 * sendTopcoinHeight.constant
+        sendTopcoin.layer.cornerRadius = 5
         sendTopcoin.clipsToBounds = true
         
-        userImage.layer.borderWidth = 0
-        userImage.layer.masksToBounds = false
-        userImage.layer.borderColor = UIColor.white.cgColor
-        userImage.layer.cornerRadius = 5
-        userImage.clipsToBounds = true
+        walletView.layer.borderWidth = 1
+        walletView.layer.masksToBounds = false
+        let myBorderColor : UIColor = UIColor( red: 216/255, green: 216/255, blue: 216/255, alpha: 0.5 )
+        walletView.layer.borderColor = myBorderColor.cgColor
+        walletView.layer.cornerRadius = 5
+        walletView.clipsToBounds = true
         
-        
-        if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1) {
-            if UserDefaults.standard.object(forKey: "balance") != nil {
-                let balance = UserDefaults.standard.double(forKey: "balance")
-                self.balanceShown.text = "\(balance+100)0"
-            } else {
-                self.balanceShown.text = "100.00"
-            }
-            
-        } else {
-            if UserDefaults.standard.object(forKey: "balance") != nil {
-                let balance = UserDefaults.standard.double(forKey: "balance")
-                self.balanceShown.text = "\(balance)0"
-            } else {
-                self.balanceShown.text = "0.00"
-            }
-        }
+        behindTableView.layer.borderWidth = 1
+        behindTableView.layer.masksToBounds = false
+        behindTableView.layer.borderColor = myBorderColor.cgColor
+        behindTableView.layer.cornerRadius = 5
+        behindTableView.clipsToBounds = true
         
         reloadBalance()
+
     }
+    
     
     func loadLogin() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -321,13 +321,23 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func reloadBalance() {
         getBalance { balance in
+            
+            var actual_balance = balance
             if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1) {
-                self.balanceShown.text = "\(balance+100)0"
-            } else {
-                self.balanceShown.text = "\(balance)0"
+                actual_balance += 100
             }
-            UserDefaults.standard.set(balance, forKey: "balance")
-            self.tableView.reloadData()
+            
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .decimal
+            numberFormatter.allowsFloats = true
+            numberFormatter.alwaysShowsDecimalSeparator = true
+            numberFormatter.minimumFractionDigits = 2
+            numberFormatter.maximumFractionDigits = 2
+            if let formattedNumber = numberFormatter.string(from: NSNumber(value:actual_balance)) {
+                self.balanceShown.text = formattedNumber
+                UserDefaults.standard.set(balance, forKey: "balance")
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -344,25 +354,8 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.transactions = transactions
             self.tableView.reloadData()
         }
-        
+    
         self.tableView.reloadData()
-        
-        if(UserDefaults.standard.integer(forKey: "earnedTopcoin") == 1) {
-            if UserDefaults.standard.object(forKey: "balance") != nil {
-                let balance = UserDefaults.standard.double(forKey: "balance")
-                self.balanceShown.text = "\(balance+100)0"
-            } else {
-                self.balanceShown.text = "100.00"
-            }
-            
-        } else {
-            if UserDefaults.standard.object(forKey: "balance") != nil {
-                let balance = UserDefaults.standard.double(forKey: "balance")
-                self.balanceShown.text = "\(balance)0"
-            } else {
-                self.balanceShown.text = "0.00"
-            }
-        }
         
         reloadBalance()
     }
@@ -533,20 +526,20 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         //iPhone X, Xs, 6, 6s, 7, 8
-        if view.frame.width == 375 {
-
-            let whiteRoundedView : UIView = UIView(frame: CGRect(x: 20, y: 8, width: self.view.frame.size.width - (40), height: self.tableView.rowHeight - 20))
-            
-            whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
-            whiteRoundedView.layer.masksToBounds = false
-            whiteRoundedView.layer.cornerRadius = 5
-            whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
-            whiteRoundedView.layer.shadowOpacity = 0.0
-            
-            cell.contentView.addSubview(whiteRoundedView)
-            cell.contentView.sendSubviewToBack(whiteRoundedView)
-            
-        }
+//        if view.frame.width == 375 {
+//
+//            let whiteRoundedView : UIView = UIView(frame: CGRect(x: 20, y: 8, width: self.view.frame.size.width - (40), height: self.tableView.rowHeight - 20))
+//
+//            whiteRoundedView.layer.backgroundColor = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1.0, 1.0, 1.0, 0.9])
+//            whiteRoundedView.layer.masksToBounds = false
+//            whiteRoundedView.layer.cornerRadius = 5
+//            whiteRoundedView.layer.shadowOffset = CGSize(width: -1, height: 1)
+//            whiteRoundedView.layer.shadowOpacity = 0.0
+//
+//            cell.contentView.addSubview(whiteRoundedView)
+//            cell.contentView.sendSubviewToBack(whiteRoundedView)
+//
+//        }
         
         //iphone 5
         if view.frame.width == 320 {
@@ -572,8 +565,10 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.balanceLabel.text = "\(received ? "" : "-")\(transaction.amount)"
         if received {
-            cell.balanceLabel.textColor = UIColor(red: 76/255, green: 191/255, blue: 44/255, alpha: 1)
+            cell.balanceLabel.textColor = UIColor(red: 59/255, green: 73/255, blue: 91/255, alpha: 1)
         }
+        
+        
         if received {
 //            cell.sendImage.image = UIImage(named: "downArrow")
             cell.cellTextHeader.text = "Received"
@@ -587,7 +582,7 @@ class AssetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             cell.cellTextDescription.text = "from \(sender)"
         } else {
-            cell.balanceLabel.textColor = UIColor(red: 84/255, green: 84/255, blue: 86/255, alpha: 1)
+            cell.balanceLabel.textColor = UIColor(red: 59/255, green: 73/255, blue: 91/255, alpha: 1)
 //            cell.sendImage.image = UIImage(named: "upArrow")
             cell.cellTextHeader.text = "Sent"
             var recipient = transaction.to_email

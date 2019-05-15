@@ -36,29 +36,29 @@ class ReusableViewController: UIViewController {
             shard3Height.constant = 340
         }
         
-        let layer = CAGradientLayer()
-        layer.frame = view.bounds
-        layer.colors = [UIColor.orange.cgColor, UIColor.yellow.cgColor]
-        layer.startPoint = CGPoint(x: 0, y: 0)
-        layer.endPoint = CGPoint(x:1, y:1)
-        gradientView.layer.addSublayer(layer)
+//        let layer = CAGradientLayer()
+//        layer.frame = view.bounds
+//        layer.colors = [UIColor.orange.cgColor, UIColor.yellow.cgColor]
+//        layer.startPoint = CGPoint(x: 0, y: 0)
+//        layer.endPoint = CGPoint(x:1, y:1)
+//        gradientView.layer.addSublayer(layer)
 
     }
     
     //shards animation
     override func viewDidAppear(_ animated: Bool) {
-        self.shard1.frame.origin.y = view.frame.maxY
-        UIView.animate(withDuration: 40, delay: 2.4, options: [.repeat], animations: {
-            self.shard1.frame.origin.y -= self.view.frame.maxY + self.shard1Height.constant
-        }, completion: nil)
-        self.shard2.frame.origin.y = view.frame.maxY
-        UIView.animate(withDuration: 15, delay: 0.0, options: [.repeat], animations: {
-            self.shard2.frame.origin.y -= self.view.frame.maxY + self.shard2Height.constant
-        }, completion: nil)
-        self.shard3.frame.origin.y = view.frame.maxY
-        UIView.animate(withDuration: 22, delay: 1.5, options: [.repeat], animations: {
-            self.shard3.frame.origin.y -= self.view.frame.maxY + self.shard3Height.constant
-        }, completion: nil)
+//        self.shard1.frame.origin.y = view.frame.maxY
+//        UIView.animate(withDuration: 40, delay: 2.4, options: [.repeat], animations: {
+//            self.shard1.frame.origin.y -= self.view.frame.maxY + self.shard1Height.constant
+//        }, completion: nil)
+//        self.shard2.frame.origin.y = view.frame.maxY
+//        UIView.animate(withDuration: 15, delay: 0.0, options: [.repeat], animations: {
+//            self.shard2.frame.origin.y -= self.view.frame.maxY + self.shard2Height.constant
+//        }, completion: nil)
+//        self.shard3.frame.origin.y = view.frame.maxY
+//        UIView.animate(withDuration: 22, delay: 1.5, options: [.repeat], animations: {
+//            self.shard3.frame.origin.y -= self.view.frame.maxY + self.shard3Height.constant
+//        }, completion: nil)
     }
     
     static func getInstance(storyboard: UIStoryboard?) -> ReusableViewController? {
